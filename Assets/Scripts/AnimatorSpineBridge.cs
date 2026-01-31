@@ -15,6 +15,7 @@ public class AnimatorSpineBridge : MonoBehaviour
     {
         bool isMoving = animator.GetBool("IsMoving");
         float moveX = animator.GetFloat("MoveX");
+        spine.SetFacing(moveX);
         float moveY = animator.GetFloat("MoveY");
 
         int stage = animator.GetInteger("Stage");
