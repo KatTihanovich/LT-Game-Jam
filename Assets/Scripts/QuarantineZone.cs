@@ -7,10 +7,10 @@ public class QuarantineZone : MonoBehaviour
 {
     public int maxCapacity = 2;
 
-    public Color zoneColor = new Color(1f, 0f, 0f, 0.25f); // обычный цвет
+    public Color zoneColor = new Color(1f, 0f, 0f, 0.25f);
     public Color borderColor = Color.red;
 
-    public Color cooldownColor = new Color(0.5f, 0.5f, 0.5f, 0.25f); // цвет во время КД
+    public Color cooldownColor = new Color(0.5f, 0.5f, 0.5f, 0.25f);
     public float healCooldown = 3f;
 
     private List<CycleWalker> inside = new List<CycleWalker>();
@@ -23,16 +23,35 @@ public class QuarantineZone : MonoBehaviour
         box.isTrigger = true;
     }
 
+    // ====== НОВОЕ ======
+
+    public bool ContainsPoint(Vector2 point)
+    {
+        return box.OverlapPoint(point);
+    }
+
+    public bool IntersectsLine(Vector2 from, Vector2 to)
+    {
+        RaycastHit2D hit = Physics2D.Linecast(from, to);
+        return hit.collider == box;
+    }
+
+    // ====== ТРИГГЕРЫ ======
+
     void OnTriggerEnter2D(Collider2D other)
     {
         CycleWalker walker = other.GetComponent<CycleWalker>();
         if (walker == null) return;
 
+        if (walker.IsDragged){
+        if (walker.currentState == CycleWalker.State.Healthy)
+            return;
+
         if (inside.Count < maxCapacity)
-        {
             PutInQuarantine(walker);
-        }
+        }    
     }
+
 
     void OnTriggerExit2D(Collider2D other)
     {
@@ -41,8 +60,8 @@ public class QuarantineZone : MonoBehaviour
 
         if (inside.Contains(walker))
         {
-            ReleaseOne();
             inside.Remove(walker);
+            walker.ExitQuarantine();
         }
     }
 
@@ -66,14 +85,11 @@ public class QuarantineZone : MonoBehaviour
     public void ReleaseAll()
     {
         foreach (var w in inside)
-        {
             w.ExitQuarantine();
-        }
 
         inside.Clear();
     }
 
-    // Лечение конкретного персонажа в карантине (с учётом КД)
     public void HealWalker(CycleWalker walker)
     {
         if (!canHeal) return;
@@ -83,8 +99,6 @@ public class QuarantineZone : MonoBehaviour
         inside.Remove(walker);
         walker.Heal();
         walker.ExitQuarantine();
-
-        Debug.Log($"[Quarantine] {walker.name} вылечен и выпущен из карантина");
 
         StartCoroutine(HealCooldownRoutine());
     }
@@ -101,7 +115,6 @@ public class QuarantineZone : MonoBehaviour
         ReleaseOne();
     }
 
-    // Визуализация зоны + цвет КД
     void OnDrawGizmos()
     {
         if (!box) box = GetComponent<BoxCollider2D>();
@@ -111,6 +124,7 @@ public class QuarantineZone : MonoBehaviour
         Vector3 center = transform.position + (Vector3)box.offset;
         Vector3 size = box.size;
         Gizmos.DrawCube(center, size);
+
         Gizmos.color = borderColor;
         Gizmos.DrawWireCube(center, size);
     }

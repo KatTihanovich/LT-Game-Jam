@@ -6,21 +6,34 @@ public class Draggable : MonoBehaviour
     private Vector3 offset;
     private Camera cam;
 
-    private Walker walker;
+    private CycleWalker walker;
+
+    // Границы движения (как в SetBounds)
+    private float minX, maxX, minY, maxY;
+
+    public void SetBounds(float minX, float maxX, float minY, float maxY)
+    {
+        this.minX = minX;
+        this.maxX = maxX;
+        this.minY = minY;
+        this.maxY = maxY;
+    }
 
     void Start()
     {
         cam = Camera.main;
-        walker = GetComponent<Walker>();
+        walker = GetComponent<CycleWalker>();
     }
 
     void OnMouseDown()
     {
         isDragging = true;
 
-        // Выключаем авто-движение
         if (walker != null)
+        {
             walker.enabled = false;
+            walker.SetDragged(true);
+        }
 
         Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
@@ -35,15 +48,23 @@ public class Draggable : MonoBehaviour
         Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
 
-        transform.position = mousePos + offset;
+        Vector3 targetPos = mousePos + offset;
+
+        // Ограничиваем внутри зоны
+        targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
+        targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
+
+        transform.position = targetPos;
     }
 
     void OnMouseUp()
     {
         isDragging = false;
 
-        // Включаем движение обратно
         if (walker != null)
+        {
             walker.enabled = true;
+            walker.SetDragged(false);
+        }
     }
 }

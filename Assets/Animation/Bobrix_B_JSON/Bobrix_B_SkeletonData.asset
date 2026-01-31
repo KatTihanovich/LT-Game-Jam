@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
-  m_Name: Bobrix_A_SkeletonData
+  m_Name: Bobrix_B_SkeletonData
   m_EditorClassIdentifier: 
   atlasAssets:
-  - {fileID: 11400000, guid: 57c23c9ba20394e60acceea0a8848c4b, type: 2}
+  - {fileID: 11400000, guid: 677bf8c52fc854012b49a57ec93c6687, type: 2}
   scale: 0.01
-  skeletonJSON: {fileID: 4900000, guid: 5fb2d1dd272e24edab3208578744fa7b, type: 3}
+  skeletonJSON: {fileID: 4900000, guid: d4ef71ed4d87346c2bd863dc8952837a, type: 3}
   isUpgradingBlendModeMaterials: 0
   blendModeMaterials:
     requiresBlendModeMaterials: 0
@@ -28,4 +28,4 @@ MonoBehaviour:
   toAnimation: []
   duration: []
   defaultMix: 0.2
-  controller: {fileID: 9100000, guid: 394d2135c0b5d43f6b6079f48028f6eb, type: 2}
+  controller: {fileID: 0}

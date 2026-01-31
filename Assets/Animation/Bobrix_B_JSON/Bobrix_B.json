@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "3AgSeGyNTycbAeBZemOnN4P/vRE",
+	"hash": "fuj4uuPayUpTMT7MkpdkqiicJ8g",
 	"spine": "3.8",
 	"x": -723,
 	"y": 4,
@@ -83,9 +83,9 @@
 "animations": {
 	"Back_Stage_1_IS_ON": {
 		"slots": {
-			"Body_Normal_Front": {
+			"Particle_A": {
 				"attachment": [
-					{ "name": "Body_normal_Back" }
+					{ "name": null }
 				]
 			},
 			"Eye_normal_blink_L": {
@@ -93,22 +93,17 @@
 					{ "name": null }
 				]
 			},
+			"Body_Normal_Front": {
+				"attachment": [
+					{ "name": "Body_normal_Back" }
+				]
+			},
 			"Eye_Normal_R": {
 				"attachment": [
 					{ "name": null }
 				]
 			},
-			"Particle_A": {
-				"attachment": [
-					{ "name": null }
-				]
-			},
-			"Body_cursed_Front": {
-				"attachment": [
-					{ "name": null }
-				]
-			},
-			"Mask_normal": {
+			"Particle_B": {
 				"attachment": [
 					{ "name": null }
 				]
@@ -118,7 +113,7 @@
 					{ "name": null }
 				]
 			},
-			"Particle_B": {
+			"Mask_normal": {
 				"attachment": [
 					{ "name": null }
 				]
@@ -132,14 +127,14 @@
 	},
 	"Back_Stage_2_IS_ON": {
 		"slots": {
-			"Body_Normal_Front": {
-				"attachment": [
-					{ "name": "Body_normal_Back" }
-				]
-			},
 			"Eye_normal_blink_L": {
 				"attachment": [
 					{ "name": null }
+				]
+			},
+			"Body_Normal_Front": {
+				"attachment": [
+					{ "name": "Body_normal_Back" }
 				]
 			},
 			"Eye_Normal_R": {
@@ -147,17 +142,12 @@
 					{ "name": null }
 				]
 			},
-			"Body_cursed_Front": {
+			"Eye_Normal_L": {
 				"attachment": [
 					{ "name": null }
 				]
 			},
 			"Mask_normal": {
-				"attachment": [
-					{ "name": null }
-				]
-			},
-			"Eye_Normal_L": {
 				"attachment": [
 					{ "name": null }
 				]
@@ -209,12 +199,12 @@
 	},
 	"Back_Stage_3_IS_ON": {
 		"slots": {
-			"Body_Normal_Front": {
+			"Eye_normal_blink_L": {
 				"attachment": [
 					{ "name": null }
 				]
 			},
-			"Eye_normal_blink_L": {
+			"Body_Normal_Front": {
 				"attachment": [
 					{ "name": null }
 				]
@@ -224,19 +214,9 @@
 					{ "name": null }
 				]
 			},
-			"Particle_A": {
-				"attachment": [
-					{ "name": "Particle_A" }
-				]
-			},
 			"Body_cursed_Front": {
 				"attachment": [
 					{ "name": "Body_cursed_Back" }
-				]
-			},
-			"Mask_normal": {
-				"attachment": [
-					{ "name": null }
 				]
 			},
 			"Eye_Normal_L": {
@@ -244,9 +224,9 @@
 					{ "name": null }
 				]
 			},
-			"Particle_B": {
+			"Mask_normal": {
 				"attachment": [
-					{ "name": "Particle_B" }
+					{ "name": null }
 				]
 			},
 			"Eye_normal_blink_R": {
@@ -294,8 +274,7 @@
 				"scale": [
 					{ "curve": "stepped" },
 					{ "time": 0.3333, "x": 0, "y": 0, "curve": "stepped" },
-					{ "time": 0.6667, "curve": "stepped" },
-					{ "time": 6 }
+					{ "time": 0.6667 }
 				]
 			},
 			"eye_L": {
@@ -397,24 +376,9 @@
 	},
 	"Stage_1_IS_ON": {
 		"slots": {
-			"Body_Normal_Front": {
-				"attachment": [
-					{ "name": "Body_Normal_Front" }
-				]
-			},
 			"Particle_A": {
 				"attachment": [
 					{ "name": null }
-				]
-			},
-			"Body_cursed_Front": {
-				"attachment": [
-					{ "name": null }
-				]
-			},
-			"Mask_normal": {
-				"attachment": [
-					{ "name": "Mask_normal" }
 				]
 			},
 			"Particle_B": {
@@ -431,14 +395,14 @@
 					{ "name": "Eye_Damaged_R" }
 				]
 			},
-			"Mask_normal": {
-				"attachment": [
-					{ "name": "Mask_Damaged" }
-				]
-			},
 			"Eye_Normal_L": {
 				"attachment": [
 					{ "name": "Eye_Damaged_L" }
+				]
+			},
+			"Mask_normal": {
+				"attachment": [
+					{ "name": "Mask_Damaged" }
 				]
 			}
 		},
@@ -488,19 +452,9 @@
 					{ "name": "Eye_cursed_R" }
 				]
 			},
-			"Particle_A": {
-				"attachment": [
-					{ "name": "Particle_A" }
-				]
-			},
 			"Body_cursed_Front": {
 				"attachment": [
 					{ "name": "Body_cursed_Front" }
-				]
-			},
-			"Mask_normal": {
-				"attachment": [
-					{ "name": null }
 				]
 			},
 			"Eye_Normal_L": {
@@ -508,9 +462,9 @@
 					{ "name": "Eye_cursed_L" }
 				]
 			},
-			"Particle_B": {
+			"Mask_normal": {
 				"attachment": [
-					{ "name": "Particle_B" }
+					{ "name": null }
 				]
 			}
 		},
@@ -530,8 +484,7 @@
 					{ "time": 0.1333, "angle": -90.34, "curve": "stepped" },
 					{ "time": 0.3333, "curve": "stepped" },
 					{ "time": 0.5333, "angle": -44.53, "curve": "stepped" },
-					{ "time": 0.8333, "angle": 177.36, "curve": "stepped" },
-					{ "time": 1, "angle": 177.36 }
+					{ "time": 0.8333, "angle": 177.36 }
 				],
 				"scale": [
 					{ "curve": 0.25, "c3": 0.75 },
@@ -587,54 +540,36 @@
 	},
 	"Stage_3_Mask_Removed": {
 		"slots": {
-			"Particle_A": {
-				"attachment": [
-					{ "time": 1.0667, "name": "Particle_A" },
-					{ "time": 1.3333, "name": "Particle_A" }
-				]
-			},
 			"Eye_Normal_R": {
 				"attachment": [
 					{ "name": "Eye_Damaged_R" },
-					{ "time": 1.0667, "name": "Eye_cursed_R" },
-					{ "time": 1.3333, "name": "Eye_cursed_R" }
+					{ "time": 1.0667, "name": "Eye_cursed_R" }
 				]
 			},
 			"Body_cursed_Front": {
 				"attachment": [
-					{ "time": 1, "name": "Body_cursed_Front" },
-					{ "time": 1.3333, "name": "Body_cursed_Front" }
-				]
-			},
-			"Mask_normal": {
-				"attachment": [
-					{ "name": "Mask_Damaged" },
-					{ "time": 1.0667, "name": null },
-					{ "time": 1.3333, "name": null }
+					{ "time": 1, "name": "Body_cursed_Front" }
 				]
 			},
 			"Eye_Normal_L": {
 				"attachment": [
 					{ "name": "Eye_Damaged_L" },
-					{ "time": 1.0667, "name": "Eye_cursed_L" },
-					{ "time": 1.3333, "name": "Eye_cursed_L" }
+					{ "time": 1.0667, "name": "Eye_cursed_L" }
 				]
 			},
-			"Particle_B": {
+			"Mask_normal": {
 				"attachment": [
-					{ "time": 1.0667, "name": "Particle_B" },
-					{ "time": 1.3333, "name": "Particle_B" }
+					{ "name": "Mask_Damaged" },
+					{ "time": 1.0667, "name": null }
 				]
 			}
 		},
 		"bones": {
 			"Mask": {
 				"translate": [
-					{ "curve": "stepped" },
 					{ "time": 0.6667, "curve": 0.25, "c3": 0.474 },
 					{ "time": 1, "y": -278.85, "curve": "stepped" },
-					{ "time": 1.0667, "curve": "stepped" },
-					{ "time": 1.3333 }
+					{ "time": 1.0667 }
 				],
 				"scale": [
 					{ "time": 0.6667 },
@@ -652,20 +587,11 @@
 					{ "time": 1.3333 }
 				],
 				"translate": [
-					{ "x": 43.84, "y": 78.44, "curve": "stepped" },
-					{ "time": 1.3333, "x": 43.84, "y": 78.44 }
+					{ "x": 43.84, "y": 78.44 }
 				],
 				"scale": [
 					{ "x": 0.381, "y": 0.381, "curve": "stepped" },
 					{ "time": 1.0667 }
-				]
-			},
-			"eye_L": {
-				"rotate": [
-					{ "time": 1.3333 }
-				],
-				"scale": [
-					{ "time": 1.3333 }
 				]
 			},
 			"Particle_B": {
@@ -677,10 +603,6 @@
 					{ "time": 1, "angle": 21.37, "curve": "stepped" },
 					{ "time": 1.3333 }
 				],
-				"translate": [
-					{ "curve": "stepped" },
-					{ "time": 1.3333 }
-				],
 				"scale": [
 					{ "x": 0.381, "y": 0.381, "curve": "stepped" },
 					{ "time": 1.0667 }
@@ -689,15 +611,9 @@
 			"eye_R": {
 				"rotate": [
 					{ "time": 1.3333, "angle": 177.36 }
-				],
-				"scale": [
-					{ "time": 1.3333 }
 				]
 			},
 			"Base": {
-				"rotate": [
-					{ "time": 1.3333 }
-				],
 				"translate": [
 					{ "curve": 0.25, "c3": 0.384 },
 					{ "time": 0.3333, "y": 131.82 },
@@ -787,11 +703,6 @@
 				],
 				"scale": [
 					{ "x": 0.659 }
-				]
-			},
-			"root": {
-				"translate": [
-					{}
 				]
 			},
 			"Leg_L": {

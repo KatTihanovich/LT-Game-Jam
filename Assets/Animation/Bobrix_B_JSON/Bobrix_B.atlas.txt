@@ -1,103 +1,110 @@
 
 Bobrix_B.png
-size: 2014,1465
+size: 2202,2448
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+Body_cursed_Back
+  rotate: false
+  xy: 2, 718
+  size: 1367, 1728
+  orig: 1367, 1728
+  offset: 0, 0
+  index: -1
 Eye_Damaged_L
   rotate: false
-  xy: 296, 1392
+  xy: 1937, 2142
   size: 103, 71
   orig: 103, 71
   offset: 0, 0
   index: -1
 Eye_Damaged_R
-  rotate: false
-  xy: 180, 1401
+  rotate: true
+  xy: 1575, 1785
   size: 114, 62
   orig: 114, 62
   offset: 0, 0
   index: -1
 Eye_Normal_L
-  rotate: false
-  xy: 401, 1374
+  rotate: true
+  xy: 1484, 1805
   size: 94, 89
   orig: 94, 89
   offset: 0, 0
   index: -1
 Eye_Normal_R
-  rotate: false
-  xy: 497, 1352
+  rotate: true
+  xy: 1371, 1510
   size: 581, 111
   orig: 581, 111
   offset: 0, 0
   index: -1
 Eye_cursed_L
   rotate: true
-  xy: 1272, 1232
+  xy: 1937, 2215
   size: 231, 263
   orig: 231, 263
   offset: 0, 0
   index: -1
 Eye_cursed_R
-  rotate: true
-  xy: 1080, 1316
+  rotate: false
+  xy: 1484, 1901
   size: 147, 190
   orig: 147, 190
   offset: 0, 0
   index: -1
 Eye_normal_blink_L
-  rotate: false
-  xy: 92, 1405
+  rotate: true
+  xy: 1484, 1717
   size: 86, 58
   orig: 86, 58
   offset: 0, 0
   index: -1
 Eye_normal_blink_R
   rotate: false
-  xy: 2, 1411
+  xy: 1639, 1814
   size: 88, 52
   orig: 88, 52
   offset: 0, 0
   index: -1
 Leg_L
-  rotate: false
-  xy: 1537, 1203
+  rotate: true
+  xy: 1675, 2130
   size: 316, 260
   orig: 316, 260
   offset: 0, 0
   index: -1
 Leg_R
   rotate: false
-  xy: 265, 1086
+  xy: 1371, 1244
   size: 346, 264
   orig: 346, 264
   offset: 0, 0
   index: -1
 Mask_Damaged
   rotate: false
-  xy: 968, 487
+  xy: 2, 2
   size: 1044, 714
   orig: 1044, 714
   offset: 0, 0
   index: -1
 Mask_normal
-  rotate: true
-  xy: 2, 2
+  rotate: false
+  xy: 1048, 2
   size: 1044, 714
   orig: 1044, 714
   offset: 0, 0
   index: -1
 Particle_A
   rotate: true
-  xy: 2, 1139
+  xy: 1675, 1868
   size: 260, 261
   orig: 260, 261
   offset: 0, 0
   index: -1
 Particle_B
-  rotate: true
-  xy: 613, 1048
+  rotate: false
+  xy: 1371, 2093
   size: 302, 353
   orig: 302, 353
   offset: 0, 0
@@ -130,19 +137,6 @@ Body_normal_Back
   index: -1
 
 Bobrix_B4.png
-size: 1371,1732
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-Body_cursed_Back
-  rotate: false
-  xy: 2, 2
-  size: 1367, 1728
-  orig: 1367, 1728
-  offset: 0, 0
-  index: -1
-
-Bobrix_B5.png
 size: 1371,1732
 format: RGBA8888
 filter: Linear,Linear
