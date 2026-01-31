@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 4d6b5b9aef0db4141b544b64bc6041dc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9097468095851153534
+    second: Bobrix_C_0
+  - first:
+      213: 6399891643940305114
+    second: Bobrix_C_1
+  - first:
+      213: -9011879694958286660
+    second: Bobrix_C_2
+  - first:
+      213: 79556694016050073
+    second: Bobrix_C_3
+  - first:
+      213: 339829279872694182
+    second: Bobrix_C_4
+  - first:
+      213: -924592496307636941
+    second: Bobrix_C_5
+  - first:
+      213: 8312192918759496538
+    second: Bobrix_C_6
+  - first:
+      213: -4554443971967440756
+    second: Bobrix_C_7
+  - first:
+      213: 5589214696431588955
+    second: Bobrix_C_8
+  - first:
+      213: 2888015041598734785
+    second: Bobrix_C_9
+  - first:
+      213: -2154117339089558817
+    second: Bobrix_C_10
+  - first:
+      213: 802315238906287391
+    second: Bobrix_C_11
+  - first:
+      213: -7894518625361530252
+    second: Bobrix_C_12
+  - first:
+      213: -4284069310415807890
+    second: Bobrix_C_13
+  - first:
+      213: -3230105377418714229
+    second: Bobrix_C_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bobrix_C_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 540
+        width: 1143
+        height: 1023
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7848a06803b04e70800000000000000
+      internalID: 9097468095851153534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_1
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 540
+        width: 1143
+        height: 1023
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad87d06ca8bf0d850800000000000000
+      internalID: 6399891643940305114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 73
+        width: 261
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb8a4771a2f5fe280800000000000000
+      internalID: -9011879694958286660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_3
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 93
+        width: 353
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 993c4564464aa1100800000000000000
+      internalID: 79556694016050073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_4
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 205
+        width: 1044
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7b617fde057b400800000000000000
+      internalID: 339829279872694182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_5
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 2
+        width: 231
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3357797f5003b23f0800000000000000
+      internalID: -924592496307636941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_6
+      rect:
+        serializedVersion: 2
+        x: 2106
+        y: 2
+        width: 234
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5b5d237b67da5370800000000000000
+      internalID: 8312192918759496538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 216
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c882675865d5bc0c0800000000000000
+      internalID: -4554443971967440756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_8
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 2
+        width: 228
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b56923a4721e09d40800000000000000
+      internalID: 5589214696431588955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_9
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 2
+        width: 224
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c14a74016a441820800000000000000
+      internalID: 2888015041598734785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_10
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 2
+        width: 231
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2ae0f61b90b12e0800000000000000
+      internalID: -2154117339089558817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_11
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 2
+        width: 237
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1554ec7575622b00800000000000000
+      internalID: 802315238906287391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_12
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 2
+        width: 225
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 472fe9e1329017290800000000000000
+      internalID: -7894518625361530252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_13
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 2
+        width: 207
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6a538ff8adeb84c0800000000000000
+      internalID: -4284069310415807890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobrix_C_14
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 2
+        width: 287
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b83e0e7e54c5c23d0800000000000000
+      internalID: -3230105377418714229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bobrix_C_0: 9097468095851153534
+      Bobrix_C_1: 6399891643940305114
+      Bobrix_C_10: -2154117339089558817
+      Bobrix_C_11: 802315238906287391
+      Bobrix_C_12: -7894518625361530252
+      Bobrix_C_13: -4284069310415807890
+      Bobrix_C_14: -3230105377418714229
+      Bobrix_C_2: -9011879694958286660
+      Bobrix_C_3: 79556694016050073
+      Bobrix_C_4: 339829279872694182
+      Bobrix_C_5: -924592496307636941
+      Bobrix_C_6: 8312192918759496538
+      Bobrix_C_7: -4554443971967440756
+      Bobrix_C_8: 5589214696431588955
+      Bobrix_C_9: 2888015041598734785
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
