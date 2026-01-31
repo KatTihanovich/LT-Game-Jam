@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+  m_Name: Bobrix_C_Atlas
+  m_EditorClassIdentifier: 
+  atlasFile: {fileID: 4900000, guid: 68b25633753134df091f78356b869066, type: 3}
+  materials:
+  - {fileID: 2100000, guid: bbd2914f145284d5489bc2fe257bbe62, type: 2}
+  - {fileID: 2100000, guid: 542e9e7f8dfd84862a6cc41a3d1ed6df, type: 2}
+  - {fileID: 2100000, guid: bb52d82188df84fd69722d80e5408191, type: 2}
+  - {fileID: 2100000, guid: 48dd6beec16594a3cae8c1e456b1a088, type: 2}
+  - {fileID: 2100000, guid: 02e0cc5cb22024fff898e78a7a8da203, type: 2}
