@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class UIPaintOnPath : MonoBehaviour
 {
@@ -36,6 +38,10 @@ public class UIPaintOnPath : MonoBehaviour
 
     [Header("Timer")]
     [SerializeField] private float timeLimit = 10f;
+
+    [Header("Next scene")]
+    public string nextSceneName;     
+    public float delayBeforeNextScene = 2f;
 
     private Camera uiCamera;
 
@@ -286,6 +292,8 @@ public class UIPaintOnPath : MonoBehaviour
         drawing = false;
         timerRunning = false;
         if (failUI) failUI.SetActive(true);
+        if (!string.IsNullOrEmpty(nextSceneName))
+            StartCoroutine(LoadNextSceneAfterDelay());
     }
 
     private void Win()
@@ -327,5 +335,11 @@ public class UIPaintOnPath : MonoBehaviour
             float y = imageRect.y + (rectH - newH) * 0.5f;
             return new Rect(imageRect.x, y, rectW, newH);
         }
+    }
+
+    private IEnumerator LoadNextSceneAfterDelay()
+    {
+        yield return new WaitForSeconds(delayBeforeNextScene);
+        SceneManager.LoadScene(nextSceneName);
     }
 }

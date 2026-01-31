@@ -472,6 +472,8 @@ MonoBehaviour:
   winUI: {fileID: 272895410}
   timerText: {fileID: 661419815}
   timeLimit: 20
+  nextSceneName: Main Scene
+  delayBeforeNextScene: 2
 --- !u!114 &402701874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,7 +677,7 @@ Animator:
   m_GameObject: {fileID: 537417233}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d5f8e93c4ef83438f95454cae269d1c2, type: 2}
+  m_Controller: {fileID: 9100000, guid: c7b3601e8e04f484696458a7fcaf1294, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
