@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MaskPuzzleManager : MonoBehaviour
 {
@@ -6,11 +8,15 @@ public class MaskPuzzleManager : MonoBehaviour
     public DraggablePieceUI[] pieces;
 
     [Header("UI to toggle")]
-    public GameObject piecesRoot;     // parent of all pieces (tray + placed ones)
-    public GameObject outlineObject;  // your big outline image object
-    public GameObject fullMaskObject; // completed mask image object (disabled at start)
+    public GameObject piecesRoot;    
+    public GameObject outlineObject;  
+    public GameObject fullMaskObject; 
 
     private bool completed;
+
+    [Header("Next scene")]
+    public string nextSceneName;      
+    public float delayBeforeNextScene = 2f;
 
     public void CheckComplete()
     {
@@ -33,7 +39,14 @@ public class MaskPuzzleManager : MonoBehaviour
         if (outlineObject) outlineObject.SetActive(false);
         if (fullMaskObject) fullMaskObject.SetActive(true);
 
-        // optional: play sound / particles here
         Debug.Log("Mask completed!");
+        if (!string.IsNullOrEmpty(nextSceneName))
+            StartCoroutine(LoadNextSceneAfterDelay());
+    }
+
+    private IEnumerator LoadNextSceneAfterDelay()
+    {
+        yield return new WaitForSeconds(delayBeforeNextScene);
+        SceneManager.LoadScene(nextSceneName);
     }
 }

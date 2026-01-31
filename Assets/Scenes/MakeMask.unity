@@ -873,6 +873,8 @@ MonoBehaviour:
   piecesRoot: {fileID: 1807322772}
   outlineObject: {fileID: 1467815713}
   fullMaskObject: {fileID: 910642769}
+  nextSceneName: Health
+  delayBeforeNextScene: 2
 --- !u!1 &1377981221
 GameObject:
   m_ObjectHideFlags: 0
