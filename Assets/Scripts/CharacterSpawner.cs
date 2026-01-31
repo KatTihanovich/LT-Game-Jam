@@ -24,15 +24,13 @@ public class CharacterSpawner : MonoBehaviour
 
     void SpawnOne()
     {
-        float x = Random.Range(
-            bottomLeft.position.x,
-            topRight.position.x
-        );
+        float minX = bottomLeft.position.x;
+        float maxX = topRight.position.x;
+        float minY = bottomLeft.position.y;
+        float maxY = topRight.position.y;
 
-        float y = Random.Range(
-            bottomLeft.position.y,
-            topRight.position.y
-        );
+        float x = Random.Range(minX, maxX);
+        float y = Random.Range(minY, maxY);
 
         Vector2 spawnPos = new Vector2(x, y);
 
@@ -42,12 +40,11 @@ public class CharacterSpawner : MonoBehaviour
             Quaternion.identity
         );
 
-        Walker walker = obj.GetComponent<Walker>();
+        // Получаем CycleWalker
+        CycleWalker walker = obj.GetComponent<CycleWalker>();
 
-        walker.minX = bottomLeft.position.x;
-        walker.maxX = topRight.position.x;
-        walker.minY = bottomLeft.position.y;
-        walker.maxY = topRight.position.y;
+        // Передаём границы
+        walker.SetBounds(minX, maxX, minY, maxY);
     }
 
     // Визуализация зоны
