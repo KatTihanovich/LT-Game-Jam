@@ -302,6 +302,8 @@ public class UIPaintOnPath : MonoBehaviour
         drawing = false;
         timerRunning = false;
         if (winUI) winUI.SetActive(true);
+        if (!string.IsNullOrEmpty(nextSceneName))
+            StartCoroutine(LoadNextSceneAfterDelay());
     }
 
     private void HideUI()
