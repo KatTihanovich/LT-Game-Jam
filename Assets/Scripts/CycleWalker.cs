@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CycleWalker : MonoBehaviour
 {
-    public enum State { Healthy, Infected, Sick }
+    public enum State { Healthy = 1, Infected = 2, Sick = 3 }
 
     public float speed = 2f;
 
@@ -13,13 +13,23 @@ public class CycleWalker : MonoBehaviour
     private Vector2 target;
 
     private bool isInitialized = false;
-
     private bool inQuarantine = false;
     public bool InQuarantine => inQuarantine;
 
     // Тащится ли сейчас мышкой
     public bool IsDragged { get; private set; }
-    public void SetDragged(bool value) => IsDragged = value;
+
+    public void SetDragged(bool value)
+    {
+        IsDragged = value;
+
+        // Триггер поднятия
+        if (value && animator != null)
+        {
+            animator.ResetTrigger("PulledUp");   // чтобы не залипало[web:24]
+            animator.SetTrigger("PulledUp");     // запускаем анимацию поднятия[web:26]
+        }
+    }
 
     public State currentState = State.Healthy;
 
@@ -29,11 +39,14 @@ public class CycleWalker : MonoBehaviour
 
     private SpriteRenderer sr;
     private QuarantineZone quarantineZone;
+    private Animator animator;
 
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         UpdateColor();
+        UpdateAnimatorStage(); // сразу выставим Stage
 
         infectionThresholdVisits = Random.Range(5, 11);
         quarantineZone = FindObjectOfType<QuarantineZone>();
@@ -49,8 +62,26 @@ public class CycleWalker : MonoBehaviour
 
     void Move()
     {
+        Vector2 currentPos = transform.position;
+
+        // Вектор к цели
+        Vector2 toTarget = target - currentPos;
+        bool isMovingNow = toTarget.sqrMagnitude > 0.0001f;
+
+        // Обновляем анимационные параметры движения
+        if (animator != null)
+        {
+            Vector2 dir = isMovingNow ? toTarget.normalized : Vector2.zero;
+
+            animator.SetBool("IsMoving", isMovingNow);
+            animator.SetFloat("MoveX", -dir.x);              // SetFloat[web:3]
+            animator.SetFloat("MoveY", dir.y);
+            animator.SetBool("IsBack", dir.y > 0.01f);
+        }
+
+        // Само перемещение
         transform.position = Vector2.MoveTowards(
-            transform.position,
+            currentPos,
             target,
             speed * Time.deltaTime
         );
@@ -137,6 +168,10 @@ public class CycleWalker : MonoBehaviour
     {
         inQuarantine = true;
         target = transform.position;
+
+        // Встал – значит не двигается
+        if (animator != null)
+            animator.SetBool("IsMoving", false);
     }
 
     public void ExitQuarantine()
@@ -156,6 +191,7 @@ public class CycleWalker : MonoBehaviour
         {
             currentState = State.Sick;
             UpdateColor();
+            UpdateAnimatorStage();
         }
     }
 
@@ -165,6 +201,7 @@ public class CycleWalker : MonoBehaviour
 
         currentState = State.Infected;
         UpdateColor();
+        UpdateAnimatorStage();
 
         if (points.Count > currentIndex + 1)
             infectedThresholdIndex = Random.Range(currentIndex + 1, points.Count);
@@ -176,6 +213,7 @@ public class CycleWalker : MonoBehaviour
     {
         currentState = State.Healthy;
         UpdateColor();
+        UpdateAnimatorStage();
 
         infectionThresholdVisits = Random.Range(5, 11);
         sourceVisitCount = 0;
@@ -190,6 +228,12 @@ public class CycleWalker : MonoBehaviour
             currentState == State.Healthy ? Color.green :
             currentState == State.Infected ? Color.yellow :
             Color.red;
+    }
+
+    private void UpdateAnimatorStage()
+    {
+        if (animator == null) return;
+        animator.SetInteger("Stage", (int)currentState);   // SetInteger для int‑параметра[web:15]
     }
 
     // ====== ИНИЦИАЛИЗАЦИЯ ======
