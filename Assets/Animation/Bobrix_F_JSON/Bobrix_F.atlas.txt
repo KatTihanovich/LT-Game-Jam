@@ -1,0 +1,145 @@
+
+Bobrix_F.png
+size: 2464,2336
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body_Back_cursed
+  rotate: true
+  xy: 2, 11
+  size: 1078, 1336
+  orig: 1078, 1336
+  offset: 0, 0
+  index: -1
+Body_Front_normal
+  rotate: false
+  xy: 1340, 2
+  size: 1078, 1321
+  orig: 1078, 1321
+  offset: 0, 0
+  index: -1
+Eyes_Damaged_L
+  rotate: true
+  xy: 2, 2236
+  size: 98, 134
+  orig: 98, 134
+  offset: 0, 0
+  index: -1
+Eyes_Damaged_R
+  rotate: true
+  xy: 138, 2236
+  size: 98, 134
+  orig: 98, 134
+  offset: 0, 0
+  index: -1
+Eyes_cursed_L
+  rotate: true
+  xy: 1055, 2119
+  size: 215, 303
+  orig: 215, 303
+  offset: 0, 0
+  index: -1
+Eyes_cursed_R
+  rotate: true
+  xy: 798, 2146
+  size: 188, 255
+  orig: 188, 255
+  offset: 0, 0
+  index: -1
+Eyes_normal_L
+  rotate: true
+  xy: 536, 2227
+  size: 107, 129
+  orig: 107, 129
+  offset: 0, 0
+  index: -1
+Eyes_normal_R
+  rotate: true
+  xy: 667, 2227
+  size: 107, 129
+  orig: 107, 129
+  offset: 0, 0
+  index: -1
+Eyes_normal_blink_L
+  rotate: true
+  xy: 274, 2236
+  size: 98, 129
+  orig: 98, 129
+  offset: 0, 0
+  index: -1
+Eyes_normal_blink_R
+  rotate: true
+  xy: 405, 2236
+  size: 98, 129
+  orig: 98, 129
+  offset: 0, 0
+  index: -1
+Leg_L
+  rotate: false
+  xy: 1360, 2096
+  size: 297, 238
+  orig: 297, 238
+  offset: 0, 0
+  index: -1
+Leg_R
+  rotate: false
+  xy: 1659, 2096
+  size: 297, 238
+  orig: 297, 238
+  offset: 0, 0
+  index: -1
+Mask_Damaged
+  rotate: false
+  xy: 1236, 1325
+  size: 1226, 747
+  orig: 1226, 747
+  offset: 0, 0
+  index: -1
+Mask_Normal
+  rotate: false
+  xy: 2, 1091
+  size: 1226, 747
+  orig: 1226, 747
+  offset: 0, 0
+  index: -1
+Mask_binding
+  rotate: false
+  xy: 357, 1840
+  size: 877, 277
+  orig: 877, 277
+  offset: 0, 0
+  index: -1
+Particle_A
+  rotate: true
+  xy: 1958, 2074
+  size: 260, 261
+  orig: 260, 261
+  offset: 0, 0
+  index: -1
+Particle_B
+  rotate: true
+  xy: 2, 1932
+  size: 302, 353
+  orig: 302, 353
+  offset: 0, 0
+  index: -1
+
+Bobrix_F2.png
+size: 2162,1340
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body_back_normal
+  rotate: false
+  xy: 1082, 17
+  size: 1078, 1321
+  orig: 1078, 1321
+  offset: 0, 0
+  index: -1
+Body_front_cursed
+  rotate: false
+  xy: 2, 2
+  size: 1078, 1336
+  orig: 1078, 1336
+  offset: 0, 0
+  index: -1
