@@ -1,0 +1,801 @@
+{
+"skeleton": {
+	"hash": "GYLKL/3QnFtFAY39BSVN+Yc1ZIk",
+	"spine": "3.8",
+	"x": -644,
+	"y": -6,
+	"width": 1218,
+	"height": 1915,
+	"images": "",
+	"audio": "C:/Users/NasTemVik/Desktop/Геймджем 2026/Bobrix Anim/Bobrix_A"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "Base", "parent": "root", "x": -16.04, "y": 294.02 },
+	{ "name": "Mask", "parent": "Base", "x": -5.49, "y": 713.96 },
+	{ "name": "Leg_R", "parent": "root", "length": 213.85, "rotation": -24.26, "x": 222.86, "y": 142.99 },
+	{ "name": "Leg_L", "parent": "root", "length": 302.63, "rotation": -143.86, "x": -230.23, "y": 192.42 },
+	{ "name": "Eye_R", "parent": "Mask", "x": 197.71, "y": 52.17 },
+	{ "name": "Eye_L", "parent": "Mask", "x": -211.44, "y": 68.65 },
+	{ "name": "Particle_B", "parent": "Base", "x": -571.17, "y": 1584.44 },
+	{ "name": "Particle_A", "parent": "Base", "x": 554.69, "y": 1732.73 }
+],
+"slots": [
+	{ "name": "Body_normal_Front", "bone": "Base", "attachment": "Body _normal_Back" },
+	{ "name": "Body_Cursed", "bone": "Base" },
+	{ "name": "Mask_binding", "bone": "Base", "attachment": "Mask_binding" },
+	{ "name": "Mask_Normal", "bone": "Mask", "attachment": "Mask_Normal" },
+	{ "name": "Mask_Damaged", "bone": "Mask" },
+	{ "name": "Leg_L", "bone": "Leg_L", "attachment": "Leg_L" },
+	{ "name": "Leg_R", "bone": "Leg_R", "attachment": "Leg_R" },
+	{ "name": "Eye_normal_L", "bone": "Eye_L", "attachment": "Eye_normal_L" },
+	{ "name": "Eye_normal_R", "bone": "Eye_R", "attachment": "Eye_normal_R" },
+	{ "name": "Eye_normal_Blink_L", "bone": "Mask", "attachment": "Eye_normal_Blink_L" },
+	{ "name": "Eye_normal_Blink_R", "bone": "Mask", "attachment": "Eye_normal_Blink_R" },
+	{ "name": "Eye_Damaged_L", "bone": "Eye_L" },
+	{ "name": "Eye_Damaged_R", "bone": "Eye_R" },
+	{ "name": "Eye_Cursed_L", "bone": "Eye_L" },
+	{ "name": "Eye_Cursed_R", "bone": "Eye_R" },
+	{ "name": "Particle_A", "bone": "Particle_A" },
+	{ "name": "Particle_B", "bone": "Particle_B" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Leg_R": {
+				"Leg_R": { "x": 115.75, "y": 14.88, "rotation": 24.26, "width": 295, "height": 156 }
+			},
+			"Mask_Damaged": {
+				"Mask_Damaged": { "x": 1.54, "y": 11.52, "width": 726, "height": 715 }
+			},
+			"Body_normal_Front": {
+				"Body _normal_Back": { "x": -18.96, "y": 708.98, "width": 1218, "height": 1564 },
+				"Body_normal_Front": { "x": -18.96, "y": 638.98, "width": 1218, "height": 1424 }
+			},
+			"Body_Cursed": {
+				"Body_Cursed_Back": { "x": -18.96, "y": 686.48, "width": 1218, "height": 1519 },
+				"Body_Cursed_Front": { "x": -18.96, "y": 706.01, "width": 1218, "height": 1564 }
+			},
+			"Mask_binding": {
+				"Mask_binding": { "x": 31.54, "y": 776.17, "width": 906, "height": 240 }
+			},
+			"Eye_Damaged_L": {
+				"Eye_Damaged_L": { "x": 22.98, "y": -23.13, "width": 152, "height": 123 }
+			},
+			"Particle_A": {
+				"Particle_A": { "x": 21.35, "y": 17.75, "width": 260, "height": 261 }
+			},
+			"Mask_Normal": {
+				"Mask_Normal": { "x": 53.04, "y": 277.52, "width": 1071, "height": 1247 }
+			},
+			"Eye_normal_Blink_L": {
+				"Eye_normal_Blink_L": { "x": -173.46, "y": 40.02, "width": 110, "height": 94 }
+			},
+			"Eye_Damaged_R": {
+				"Eye_Damaged_R": { "x": 10.32, "y": -6.16, "width": 163, "height": 122 }
+			},
+			"Eye_normal_L": {
+				"Eye_normal_L": { "x": 29.98, "y": -23.13, "width": 130, "height": 105 }
+			},
+			"Eye_normal_Blink_R": {
+				"Eye_normal_Blink_R": { "x": 236.04, "y": 38.02, "width": 199, "height": 100 }
+			},
+			"Eye_normal_R": {
+				"Eye_normal_R": { "x": 36.82, "y": -2.16, "width": 202, "height": 124 }
+			},
+			"Particle_B": {
+				"Particle_B": { "x": -5.79, "y": -3.96, "width": 302, "height": 353 }
+			},
+			"Eye_Cursed_L": {
+				"Eye_Cursed_L": { "x": 17.48, "y": 6.37, "width": 195, "height": 194 }
+			},
+			"Eye_Cursed_R": {
+				"Eye_Cursed_R": { "x": 11.32, "y": 11.84, "width": 195, "height": 194 }
+			},
+			"Leg_L": {
+				"Leg_L": { "x": 145.16, "y": 1.62, "rotation": 143.86, "width": 289, "height": 223 }
+			}
+		}
+	}
+],
+"animations": {
+	"Back_Stage_1_IS_ON": {
+		"slots": {
+			"Eye_normal_Blink_L": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Eye_normal_L": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Mask_Normal": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Eye_normal_Blink_R": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Eye_normal_R": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		}
+	},
+	"Back_Stage_2_IS_ON": {
+		"slots": {
+			"Eye_normal_Blink_L": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Particle_A": {
+				"attachment": [
+					{ "name": "Particle_A" }
+				]
+			},
+			"Particle_B": {
+				"attachment": [
+					{ "name": "Particle_B" }
+				]
+			},
+			"Eye_normal_L": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Mask_Normal": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Eye_normal_Blink_R": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Eye_normal_R": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		},
+		"bones": {
+			"Particle_B": {
+				"rotate": [
+					{ "angle": -98.81, "curve": "stepped" },
+					{ "time": 0.1667, "curve": "stepped" },
+					{ "time": 0.3333, "angle": 144.9, "curve": "stepped" },
+					{ "time": 0.6, "angle": -28.6, "curve": "stepped" },
+					{ "time": 0.8667, "angle": -98.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 1, "x": 1170, "y": -42 }
+				],
+				"scale": [
+					{ "x": 0.474, "y": 0.474 }
+				]
+			},
+			"Particle_A": {
+				"rotate": [
+					{ "angle": -98.81, "curve": "stepped" },
+					{ "time": 0.1, "curve": "stepped" },
+					{ "time": 0.2667, "angle": 144.9, "curve": "stepped" },
+					{ "time": 0.5333, "angle": -28.6, "curve": "stepped" },
+					{ "time": 0.8, "angle": -98.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 1, "x": -1104, "y": -138 }
+				],
+				"scale": [
+					{ "x": 0.438, "y": 0.438 }
+				]
+			}
+		}
+	},
+	"Back_Stage_3_IS_ON": {
+		"slots": {
+			"Eye_normal_Blink_L": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Body_normal_Front": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Particle_A": {
+				"attachment": [
+					{ "name": "Particle_A" }
+				]
+			},
+			"Particle_B": {
+				"attachment": [
+					{ "name": "Particle_B" }
+				]
+			},
+			"Eye_normal_L": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Mask_Normal": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Body_Cursed": {
+				"attachment": [
+					{ "name": "Body_Cursed_Back" }
+				]
+			},
+			"Eye_normal_Blink_R": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Eye_normal_R": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Mask_binding": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		},
+		"bones": {
+			"Particle_B": {
+				"rotate": [
+					{ "angle": -98.81, "curve": "stepped" },
+					{ "time": 0.1667, "curve": "stepped" },
+					{ "time": 0.3333, "angle": 144.9, "curve": "stepped" },
+					{ "time": 0.6, "angle": -28.6, "curve": "stepped" },
+					{ "time": 0.8667, "angle": -98.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.4667, "x": 540.27, "y": 267.79 },
+					{ "time": 1, "x": 1136.92, "y": 46.98 }
+				]
+			},
+			"Particle_A": {
+				"rotate": [
+					{ "angle": -98.81, "curve": "stepped" },
+					{ "time": 0.1, "curve": "stepped" },
+					{ "time": 0.2667, "angle": 144.9, "curve": "stepped" },
+					{ "time": 0.5333, "angle": -28.6, "curve": "stepped" },
+					{ "time": 0.8, "angle": -98.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.4333, "x": -507.38, "y": -460.4 },
+					{ "time": 1, "x": -1042.96, "y": -173.83 }
+				]
+			}
+		}
+	},
+	"Blink": {
+		"bones": {
+			"Eye_L": {
+				"scale": [
+					{ "curve": "stepped" },
+					{ "time": 0.1667, "x": 0, "y": 0, "curve": "stepped" },
+					{ "time": 0.3333 }
+				]
+			},
+			"Eye_R": {
+				"scale": [
+					{ "curve": "stepped" },
+					{ "time": 0.1667, "x": 0, "y": 0, "curve": "stepped" },
+					{ "time": 0.3333, "curve": "stepped" },
+					{ "time": 6.3333 }
+				]
+			}
+		}
+	},
+	"Idle": {
+		"bones": {
+			"Base": {
+				"translate": [
+					{ "curve": 0.406, "c3": 0.614 },
+					{ "time": 1.3333, "y": -50.81, "curve": 0.406, "c3": 0.614 },
+					{ "time": 2.6667, "curve": 0.406, "c3": 0.614 },
+					{ "time": 4, "y": -50.81, "curve": 0.406, "c3": 0.614 },
+					{ "time": 5.3333 }
+				]
+			},
+			"Leg_L": {
+				"rotate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.2, "angle": -16.25, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.4, "angle": -6.93, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.5667, "angle": -16.25, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.7667 }
+				]
+			}
+		}
+	},
+	"Pulled_Up": {
+		"bones": {
+			"Base": {
+				"rotate": [
+					{ "angle": -3.39 },
+					{ "time": 0.4667, "angle": 4.13 },
+					{ "time": 1, "angle": -3.39 }
+				],
+				"translate": [
+					{ "x": -57.49, "y": 129.36 },
+					{ "time": 0.4667, "x": 62.28, "y": 129.36 },
+					{ "time": 1, "x": -57.49, "y": 129.36 }
+				]
+			},
+			"Leg_L": {
+				"rotate": [
+					{ "angle": 30.27 },
+					{ "time": 0.2333, "angle": 11.23 },
+					{ "time": 0.6667, "angle": 60.6 },
+					{ "time": 1, "angle": 30.27 }
+				],
+				"translate": [
+					{ "x": 57.49, "y": 196.43 },
+					{ "time": 0.5333, "x": 57.49, "y": 148.52 },
+					{ "time": 1, "x": 57.49, "y": 196.43 }
+				]
+			},
+			"Leg_R": {
+				"rotate": [
+					{ "angle": -52.5 },
+					{ "time": 0.2333, "angle": -30.83 },
+					{ "time": 0.6667, "angle": -68.8 },
+					{ "time": 1, "angle": -52.5 }
+				],
+				"translate": [
+					{ "x": -95.82, "y": 201.22 },
+					{ "time": 0.5333, "x": -95.82, "y": 162.89 },
+					{ "time": 1, "x": -95.82, "y": 201.22 }
+				]
+			},
+			"Mask": {
+				"rotate": [
+					{},
+					{ "time": 0.3, "angle": 4.66 },
+					{ "time": 0.8667, "angle": -2.49 },
+					{ "time": 1 }
+				],
+				"translate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.3333, "y": 67.07, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.6667, "y": -71.86, "curve": 0.25, "c3": 0.75 },
+					{ "time": 1 }
+				]
+			}
+		}
+	},
+	"Stage_1_IS_ON": {
+		"slots": {
+			"Body_normal_Front": {
+				"attachment": [
+					{ "name": "Body_normal_Front" }
+				]
+			}
+		}
+	},
+	"Stage_2_IS_ON": {
+		"slots": {
+			"Body_normal_Front": {
+				"attachment": [
+					{ "name": "Body_normal_Front" }
+				]
+			},
+			"Particle_A": {
+				"attachment": [
+					{ "name": "Particle_A" }
+				]
+			},
+			"Particle_B": {
+				"attachment": [
+					{ "name": "Particle_B" }
+				]
+			},
+			"Eye_Damaged_L": {
+				"attachment": [
+					{ "name": "Eye_Damaged_L" }
+				]
+			},
+			"Eye_normal_L": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Eye_Damaged_R": {
+				"attachment": [
+					{ "name": "Eye_Damaged_R" }
+				]
+			},
+			"Eye_normal_R": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Mask_Damaged": {
+				"attachment": [
+					{ "name": "Mask_Damaged" }
+				]
+			}
+		},
+		"bones": {
+			"Particle_A": {
+				"rotate": [
+					{ "angle": -98.81, "curve": "stepped" },
+					{ "time": 0.1, "curve": "stepped" },
+					{ "time": 0.2667, "angle": 144.9, "curve": "stepped" },
+					{ "time": 0.5333, "angle": -28.6, "curve": "stepped" },
+					{ "time": 0.8, "angle": -98.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 1, "x": -1104, "y": -138 }
+				],
+				"scale": [
+					{ "x": 0.438, "y": 0.438 }
+				]
+			},
+			"Particle_B": {
+				"rotate": [
+					{ "angle": -98.81, "curve": "stepped" },
+					{ "time": 0.1667, "curve": "stepped" },
+					{ "time": 0.3333, "angle": 144.9, "curve": "stepped" },
+					{ "time": 0.6, "angle": -28.6, "curve": "stepped" },
+					{ "time": 0.8667, "angle": -98.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 1, "x": 1170, "y": -42 }
+				],
+				"scale": [
+					{ "x": 0.474, "y": 0.474 }
+				]
+			}
+		}
+	},
+	"Stage_3_IS_ON": {
+		"slots": {
+			"Eye_Cursed_R": {
+				"attachment": [
+					{ "name": "Eye_Cursed_R" }
+				]
+			},
+			"Particle_A": {
+				"attachment": [
+					{ "name": "Particle_A" }
+				]
+			},
+			"Particle_B": {
+				"attachment": [
+					{ "name": "Particle_B" }
+				]
+			},
+			"Eye_normal_L": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Body_Cursed": {
+				"attachment": [
+					{ "name": "Body_Cursed_Front" }
+				]
+			},
+			"Mask_Normal": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Eye_Cursed_L": {
+				"attachment": [
+					{ "name": "Eye_Cursed_L" }
+				]
+			},
+			"Eye_normal_R": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Mask_binding": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		},
+		"bones": {
+			"Base": {
+				"translate": [
+					{},
+					{ "time": 0.2333, "x": -12.42 },
+					{ "time": 0.5 },
+					{ "time": 0.7667, "x": 12.42 },
+					{ "time": 1 }
+				]
+			},
+			"Particle_A": {
+				"rotate": [
+					{ "angle": -98.81, "curve": "stepped" },
+					{ "time": 0.1, "curve": "stepped" },
+					{ "time": 0.2667, "angle": 144.9, "curve": "stepped" },
+					{ "time": 0.5333, "angle": -28.6, "curve": "stepped" },
+					{ "time": 0.8, "angle": -98.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.4333, "x": -507.38, "y": -460.4 },
+					{ "time": 1, "x": -1042.96, "y": -173.83 }
+				]
+			},
+			"Particle_B": {
+				"rotate": [
+					{ "angle": -98.81, "curve": "stepped" },
+					{ "time": 0.1667, "curve": "stepped" },
+					{ "time": 0.3333, "angle": 144.9, "curve": "stepped" },
+					{ "time": 0.6, "angle": -28.6, "curve": "stepped" },
+					{ "time": 0.8667, "angle": -98.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.4667, "x": 540.27, "y": 267.79 },
+					{ "time": 1, "x": 1136.92, "y": 46.98 }
+				]
+			},
+			"Eye_L": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.1667, "angle": 144.9, "curve": "stepped" },
+					{ "time": 0.4333, "angle": -28.6, "curve": "stepped" },
+					{ "time": 0.7, "angle": -98.81, "curve": "stepped" },
+					{ "time": 1 }
+				]
+			},
+			"Eye_R": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.1667, "angle": 144.9, "curve": "stepped" },
+					{ "time": 0.4333, "angle": -28.6, "curve": "stepped" },
+					{ "time": 0.7, "angle": -98.81, "curve": "stepped" },
+					{ "time": 1 }
+				]
+			}
+		}
+	},
+	"Stage_3_Mask_Remove": {
+		"slots": {
+			"Eye_Cursed_R": {
+				"attachment": [
+					{ "time": 1.1, "name": "Eye_Cursed_R" }
+				]
+			},
+			"Body_normal_Front": {
+				"attachment": [
+					{ "name": "Body_normal_Front" }
+				]
+			},
+			"Particle_A": {
+				"attachment": [
+					{ "name": "Particle_A" }
+				]
+			},
+			"Particle_B": {
+				"attachment": [
+					{ "name": "Particle_B" }
+				]
+			},
+			"Eye_Damaged_L": {
+				"attachment": [
+					{ "name": "Eye_Damaged_L" }
+				]
+			},
+			"Eye_normal_L": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Eye_Damaged_R": {
+				"attachment": [
+					{ "name": "Eye_Damaged_R" }
+				]
+			},
+			"Body_Cursed": {
+				"attachment": [
+					{ "time": 1.3333, "name": "Body_Cursed_Front" }
+				]
+			},
+			"Mask_Normal": {
+				"attachment": [
+					{ "time": 1.1, "name": null }
+				]
+			},
+			"Eye_Cursed_L": {
+				"attachment": [
+					{ "time": 1.1, "name": "Eye_Cursed_L" }
+				]
+			},
+			"Eye_normal_R": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"Mask_binding": {
+				"attachment": [
+					{ "time": 1.1, "name": null }
+				]
+			},
+			"Mask_Damaged": {
+				"attachment": [
+					{ "name": "Mask_Damaged" },
+					{ "time": 1.1, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"Particle_A": {
+				"rotate": [
+					{ "angle": -98.81, "curve": "stepped" },
+					{ "time": 0.3333, "angle": -25.73, "curve": "stepped" },
+					{ "time": 0.6667, "angle": -47.21, "curve": "stepped" },
+					{ "time": 1, "angle": 1.61, "curve": "stepped" },
+					{ "time": 1.3333, "angle": -98.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.6667, "x": -24, "y": 150 },
+					{ "time": 1.3333 }
+				],
+				"scale": [
+					{ "x": 0.438, "y": 0.438 },
+					{ "time": 1.3333 }
+				]
+			},
+			"Particle_B": {
+				"rotate": [
+					{ "angle": -98.81, "curve": "stepped" },
+					{ "time": 0.3333, "angle": -166.39, "curve": "stepped" },
+					{ "time": 0.6667, "angle": 119.83, "curve": "stepped" },
+					{ "time": 1, "angle": 79.22, "curve": "stepped" },
+					{ "time": 1.3333, "angle": -98.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.6667, "x": 6, "y": -132 },
+					{ "time": 1.3333 }
+				],
+				"scale": [
+					{ "x": 0.474, "y": 0.474 },
+					{ "time": 1.3333 }
+				]
+			},
+			"Base": {
+				"translate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.3333, "y": -36, "curve": 0.25, "c3": 0.378 },
+					{ "time": 1, "y": 126 },
+					{ "time": 1.3333 }
+				]
+			},
+			"Mask": {
+				"scale": [
+					{ "time": 0.9 },
+					{ "time": 1, "x": 1.134, "y": 1.134 },
+					{ "time": 1.0667, "x": 0.88, "y": 0.88 },
+					{ "time": 1.2, "x": 0.986, "y": 0.986 },
+					{ "time": 1.3333, "x": 0.88, "y": 0.88 }
+				]
+			},
+			"Leg_L": {
+				"rotate": [
+					{ "time": 0.3333, "curve": 0.25, "c3": 0.29 },
+					{ "time": 1, "angle": 27.09 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{ "time": 0.3333, "curve": 0.25, "c3": 0.29 },
+					{ "time": 1, "x": 18, "y": 72 },
+					{ "time": 1.3333 }
+				]
+			},
+			"Leg_R": {
+				"rotate": [
+					{ "time": 0.3333, "curve": 0.25, "c3": 0.458 },
+					{ "time": 1, "angle": -34.12 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{ "time": 0.3333, "curve": 0.25, "c3": 0.458 },
+					{ "time": 1, "x": -30, "y": 84 },
+					{ "time": 1.3333 }
+				]
+			}
+		}
+	},
+	"Walk": {
+		"bones": {
+			"Leg_L": {
+				"translate": [
+					{},
+					{ "time": 0.1667, "y": 46.98 },
+					{ "time": 0.5 }
+				]
+			},
+			"Leg_R": {
+				"translate": [
+					{ "time": 0.1667 },
+					{ "time": 0.3333, "y": 42.28 },
+					{ "time": 0.6667 }
+				]
+			},
+			"Base": {
+				"translate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.3333, "y": 37.58, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.6667 }
+				]
+			},
+			"Mask": {
+				"scale": [
+					{},
+					{ "time": 0.3333, "x": 1.05, "y": 0.95 },
+					{ "time": 0.6667 }
+				]
+			}
+		}
+	},
+	"Walk_Side": {
+		"bones": {
+			"Leg_L": {
+				"translate": [
+					{},
+					{ "time": 0.1667, "x": -93.96, "y": 32.89 },
+					{ "time": 0.5 }
+				]
+			},
+			"Leg_R": {
+				"translate": [
+					{ "time": 0.1667 },
+					{ "time": 0.3333, "x": -126.85, "y": 42.28 },
+					{ "time": 0.6667 }
+				]
+			},
+			"Base": {
+				"rotate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "angle": -3.95, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.6667 }
+				],
+				"translate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.3333, "y": 37.58, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.6667 }
+				]
+			},
+			"Mask": {
+				"translate": [
+					{ "x": -155.81, "y": -7.7 }
+				],
+				"scale": [
+					{},
+					{ "time": 0.3333, "x": 1.05, "y": 0.95 },
+					{ "time": 0.6667 }
+				]
+			}
+		}
+	}
+}
+}
