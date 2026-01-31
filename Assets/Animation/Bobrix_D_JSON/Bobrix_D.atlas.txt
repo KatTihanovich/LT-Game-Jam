@@ -1,0 +1,151 @@
+
+Bobrix_D.png
+size: 2403,2085
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body_cursed_Back
+  rotate: true
+  xy: 2, 2
+  size: 1240, 1534
+  orig: 1240, 1534
+  offset: 0, 0
+  index: -1
+Eyes_blink_L
+  rotate: true
+  xy: 227, 1982
+  size: 101, 103
+  orig: 101, 103
+  offset: 0, 0
+  index: -1
+Eyes_blink_R
+  rotate: true
+  xy: 2, 1997
+  size: 86, 109
+  orig: 86, 109
+  offset: 0, 0
+  index: -1
+Eyes_cursed_L
+  rotate: false
+  xy: 836, 1889
+  size: 195, 194
+  orig: 195, 194
+  offset: 0, 0
+  index: -1
+Eyes_cursed_R
+  rotate: false
+  xy: 672, 1936
+  size: 162, 147
+  orig: 162, 147
+  offset: 0, 0
+  index: -1
+Eyes_damaged_L
+  rotate: false
+  xy: 439, 1975
+  size: 110, 108
+  orig: 110, 108
+  offset: 0, 0
+  index: -1
+Eyes_damaged_R
+  rotate: true
+  xy: 551, 1975
+  size: 108, 119
+  orig: 108, 119
+  offset: 0, 0
+  index: -1
+Eyes_normal_L
+  rotate: false
+  xy: 332, 1978
+  size: 105, 105
+  orig: 105, 105
+  offset: 0, 0
+  index: -1
+Eyes_normal_R
+  rotate: true
+  xy: 113, 1985
+  size: 98, 112
+  orig: 98, 112
+  offset: 0, 0
+  index: -1
+Leg_left
+  rotate: false
+  xy: 1910, 1875
+  size: 242, 208
+  orig: 242, 208
+  offset: 0, 0
+  index: -1
+Leg_right
+  rotate: false
+  xy: 2154, 1862
+  size: 247, 221
+  orig: 247, 221
+  offset: 0, 0
+  index: -1
+Mask_Damaged
+  rotate: true
+  xy: 620, 1253
+  size: 629, 746
+  orig: 629, 746
+  offset: 0, 0
+  index: -1
+Mask_Normal
+  rotate: true
+  xy: 1368, 1244
+  size: 629, 746
+  orig: 629, 746
+  offset: 0, 0
+  index: -1
+Mask_binding
+  rotate: false
+  xy: 1033, 1884
+  size: 875, 199
+  orig: 875, 199
+  offset: 0, 0
+  index: -1
+Particle_A
+  rotate: true
+  xy: 2, 1720
+  size: 260, 261
+  orig: 260, 261
+  offset: 0, 0
+  index: -1
+Particle_B
+  rotate: true
+  xy: 265, 1671
+  size: 302, 353
+  orig: 302, 353
+  offset: 0, 0
+  index: -1
+
+Bobrix_D2.png
+size: 2486,1538
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body_cursed_Front
+  rotate: false
+  xy: 2, 2
+  size: 1240, 1534
+  orig: 1240, 1534
+  offset: 0, 0
+  index: -1
+Body_normal_Back
+  rotate: false
+  xy: 1244, 124
+  size: 1240, 1412
+  orig: 1240, 1412
+  offset: 0, 0
+  index: -1
+
+Bobrix_D3.png
+size: 1244,1416
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body_normal_Front
+  rotate: false
+  xy: 2, 2
+  size: 1240, 1412
+  orig: 1240, 1412
+  offset: 0, 0
+  index: -1
