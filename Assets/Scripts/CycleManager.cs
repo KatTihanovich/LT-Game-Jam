@@ -8,70 +8,83 @@ public class CycleManager : MonoBehaviour
 
     public Transform sourcePoint;
     public GameObject fadeImage;
+    public Source source;   // <--- повесь это поле в инспекторе
 
     private List<CycleWalker> walkers = new List<CycleWalker>();
-
     private int finishedCount = 0;
     private int reachedSourceCount = 0;
 
-    void Awake()
+    private void Awake()
     {
         Instance = this;
+        Debug.Log(sourcePoint.position);
     }
 
     public void Register(CycleWalker walker)
     {
-        walkers.Add(walker);
+        if (!walkers.Contains(walker))
+            walkers.Add(walker);
+    }
+
+    public void Unregister(CycleWalker walker)
+    {
+        if (walkers.Contains(walker))
+            walkers.Remove(walker);
     }
 
     // Закончил маршрут
     public void NotifyFinished()
     {
-        Debug.Log("Walker finished cycle");
         finishedCount++;
-
-        if (finishedCount >= walkers.Count)
+        if (finishedCount >= walkers.Count && walkers.Count > 0)
         {
             StartCoroutine(SendAllToSource());
         }
     }
 
-    // Дошёл до источника
     public void NotifyReachedSource()
     {
         reachedSourceCount++;
-
-        if (reachedSourceCount >= walkers.Count)
+        if (reachedSourceCount >= walkers.Count-2 && walkers.Count > 0)
         {
-            Debug.Log("All reached source, starting night routine");
             StartCoroutine(NightRoutine());
         }
     }
 
-    IEnumerator SendAllToSource()
+    private IEnumerator SendAllToSource()
     {
         foreach (var w in walkers)
         {
-            Debug.Log("Sending to source");
-            w.GoToSource();
+            if (w != null);
+                
         }
 
         yield return null;
     }
 
-    IEnumerator NightRoutine()
+    private IEnumerator NightRoutine()
     {
-        Debug.Log("Starting night routine");
         fadeImage.SetActive(true);
         yield return new WaitForSeconds(3f);
 
+        // НОЧНАЯ ФАЗА: заражение и изменение HP источника
+        if (source != null)
+        {
+            Debug.Log("[CycleManager] Starting EndOfDay on Source");
+        }
+        else
+        {
+            Debug.LogWarning("[CycleManager] Source не назначен в инспекторе!");
+        }
 
+        // Готовим новый день
         finishedCount = 0;
         reachedSourceCount = 0;
 
         foreach (var w in walkers)
         {
-            w.StartNewCycle();
+            if (w != null)
+                w.StartNewCycle();
         }
 
         fadeImage.SetActive(false);

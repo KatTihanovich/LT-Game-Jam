@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8335449729611130106}
   - component: {fileID: 7338372214011403322}
-  - component: {fileID: 7903969420533832759}
   - component: {fileID: 5072961757773127149}
   - component: {fileID: 2503513443604987378}
   - component: {fileID: 600479952800758663}
+  - component: {fileID: 7864514314627544904}
   m_Layer: 0
-  m_Name: Chel
+  m_Name: Bobrik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,23 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7903969420533832759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453308882676069103}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7747690c8c05ad848a09af0cd14cc7f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  minX: 0
-  maxX: 0
-  minY: 0
-  maxY: 0
 --- !u!58 &5072961757773127149
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -168,4 +151,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7823e53a0ee134946890b9ff63fc9e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 4
+  currentState: 0
+  infectionDurationMin: 0
+  infectionDurationMax: 2
+--- !u!50 &7864514314627544904
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453308882676069103}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
