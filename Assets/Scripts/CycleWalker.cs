@@ -17,54 +17,55 @@ public class CycleWalker : MonoBehaviour
     private bool inQuarantine = false;
     public bool InQuarantine => inQuarantine;
 
-    // ========== ИНФЕКЦИЯ ==========
+    // Тащится ли сейчас мышкой
+    public bool IsDragged { get; private set; }
+    public void SetDragged(bool value) => IsDragged = value;
+
     public State currentState = State.Healthy;
 
-    // Порог по числу посещений источника для перехода в Infected
     private int sourceVisitCount = 0;
     private int infectionThresholdVisits = 0;
-
-    // Индекс точки, на которой Infected станет Sick
     private int infectedThresholdIndex = -1;
 
     private SpriteRenderer sr;
+    private QuarantineZone quarantineZone;
 
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         UpdateColor();
 
-        // Случайный порог визитов к источнику: 5–10 включительно
         infectionThresholdVisits = Random.Range(5, 11);
-        Debug.Log($"[Walker {name}] infectionThresholdVisits = {infectionThresholdVisits}");
+        quarantineZone = FindObjectOfType<QuarantineZone>();
     }
 
     void Update()
     {
         if (!isInitialized) return;
         if (inQuarantine) return;
+
         Move();
     }
 
     void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            target,
+            speed * Time.deltaTime
+        );
+
         if (Vector2.Distance(transform.position, target) < 0.05f)
             OnReachPoint();
     }
 
     void OnReachPoint()
     {
-        // Проверяем, является ли текущая точка источником
         if (Vector2.Distance(points[currentIndex], Source.Instance.transform.position) < 0.01f)
         {
-            // Сообщаем источнику о посещении
             Source.Instance?.OnWalkerVisitedSource(this);
-
-            // Считаем визиты к источнику
             sourceVisitCount++;
 
-            // Когда превысили порог — становимся Infected
             if (currentState == State.Healthy && currentIndex >= infectionThresholdVisits)
             {
                 Infect();
@@ -72,13 +73,11 @@ public class CycleWalker : MonoBehaviour
             }
         }
 
-        // Проверяем переход Infected → Sick по индексу точки
         Sick();
 
         currentIndex++;
         if (currentIndex >= points.Count)
         {
-            // Новый цикл из 10 точек (1 точка — источник)
             StartNewCycle();
             return;
         }
@@ -86,7 +85,8 @@ public class CycleWalker : MonoBehaviour
         target = points[currentIndex];
     }
 
-    // ========== ЦИКЛ ==========
+    // ====== ЦИКЛ ======
+
     public void StartNewCycle()
     {
         points.Clear();
@@ -100,21 +100,39 @@ public class CycleWalker : MonoBehaviour
 
     void GeneratePoints()
     {
-        // 9 случайных точек
         for (int i = 0; i < 9; i++)
         {
-            float x = Random.Range(minX, maxX);
-            float y = Random.Range(minY, maxY);
-            points.Add(new Vector2(x, y));
+            Vector2 point;
+            int attempts = 0;
+
+            do
+            {
+                float x = Random.Range(minX, maxX);
+                float y = Random.Range(minY, maxY);
+                point = new Vector2(x, y);
+                attempts++;
+
+                if (attempts > 30)
+                    break;
+
+            } while (
+                quarantineZone != null &&
+                currentState != State.Healthy &&
+                (
+                    quarantineZone.ContainsPoint(point) ||
+                    quarantineZone.IntersectsLine(transform.position, point)
+                )
+            );
+
+            points.Add(point);
         }
 
-        // 1 точка — источник, случайная позиция в списке 1..9 (итого 10 точек)
-        int index = Random.Range(1, 10);
-        Vector2 sourcePos = Source.Instance.transform.position;
-        points.Insert(index, sourcePos);
+        int index = Random.Range(1, points.Count + 1);
+        points.Insert(index, Source.Instance.transform.position);
     }
 
-    // ========== КАРАНТИН ==========
+    // ====== КАРАНТИН ======
+
     public void EnterQuarantine()
     {
         inQuarantine = true;
@@ -128,26 +146,8 @@ public class CycleWalker : MonoBehaviour
             target = points[currentIndex];
     }
 
-    // ========== ЛЕЧЕНИЕ КЛИКОМ ==========
-    void OnMouseDown()
-    {
-        if (!InQuarantine) return;
-        if (currentState == State.Healthy) return;
+    // ====== БОЛЕЗНЬ ======
 
-        Collider2D[] hits = Physics2D.OverlapPointAll(transform.position);
-        foreach (var h in hits)
-        {
-            QuarantineZone zone = h.GetComponent<QuarantineZone>();
-            if (zone != null)
-            {
-                zone.HealWalker(this);
-                return;
-            }
-        }
-    }
-
-    // ========== ПРОГРЕСС БОЛЕЗНИ ==========
-    // Infected → Sick по достижении infectedThresholdIndex
     public void Sick()
     {
         if (currentState == State.Infected &&
@@ -156,31 +156,20 @@ public class CycleWalker : MonoBehaviour
         {
             currentState = State.Sick;
             UpdateColor();
-            Debug.Log($"[Walker {name}] стал Sick на точке {currentIndex}");
         }
     }
 
     public void Infect()
     {
-        if (currentState == State.Healthy)
-        {
-            currentState = State.Infected;
-            UpdateColor();
+        if (currentState != State.Healthy) return;
 
-            // В момент заражения выбираем точку маршрута, на которой он станет Sick.
-            // Берём одну из следующих точек текущего цикла.
-            if (points.Count > currentIndex + 1)
-            {
-                infectedThresholdIndex = Random.Range(currentIndex + 1, points.Count);
-            }
-            else
-            {
-                // на всякий случай — если заражение случилось в самом конце цикла
-                infectedThresholdIndex = -1;
-            }
+        currentState = State.Infected;
+        UpdateColor();
 
-            Debug.Log($"[Walker {name}] станет Sick на точке {infectedThresholdIndex}");
-        }
+        if (points.Count > currentIndex + 1)
+            infectedThresholdIndex = Random.Range(currentIndex + 1, points.Count);
+        else
+            infectedThresholdIndex = -1;
     }
 
     public void Heal()
@@ -188,28 +177,23 @@ public class CycleWalker : MonoBehaviour
         currentState = State.Healthy;
         UpdateColor();
 
-        // После лечения задаём новый порог визитов и сбрасываем прогресс
         infectionThresholdVisits = Random.Range(5, 11);
         sourceVisitCount = 0;
         infectedThresholdIndex = -1;
-        Debug.Log($"[Walker {name}] новый infectionThresholdVisits = {infectionThresholdVisits}");
-        infectionThresholdVisits = Random.Range(5, 11);
-
     }
 
     private void UpdateColor()
     {
-        if (sr == null) return;
+        if (!sr) return;
 
-        switch (currentState)
-        {
-            case State.Healthy:  sr.color = Color.green;  break;
-            case State.Infected: sr.color = Color.yellow; break;
-            case State.Sick:     sr.color = Color.red;    break;
-        }
+        sr.color =
+            currentState == State.Healthy ? Color.green :
+            currentState == State.Infected ? Color.yellow :
+            Color.red;
     }
 
-    // ========== ИНИЦИАЛИЗАЦИЯ ==========
+    // ====== ИНИЦИАЛИЗАЦИЯ ======
+
     public void SetBounds(float minX, float maxX, float minY, float maxY)
     {
         this.minX = minX;

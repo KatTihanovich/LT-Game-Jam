@@ -62,6 +62,12 @@ public class CharacterSpawner : MonoBehaviour
             Quaternion.identity
         );
 
+    Draggable drag = obj.GetComponent<Draggable>();
+        if (drag != null)
+        {
+            drag.SetBounds(minX, maxX, minY, maxY);
+        }
+
         // Получаем CycleWalker
         CycleWalker walker = obj.GetComponent<CycleWalker>();
         if (walker != null)
