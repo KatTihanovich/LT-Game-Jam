@@ -28,8 +28,6 @@ public class SpineTrackController : MonoBehaviour
     [Header("Special")]
     public string stage3MaskRemove = "Stage_3_Mask_Remove";
 
-    bool stage3Initialized = false;
-
     string currentBodyAnim;
     string currentHeadAnim;
 
@@ -77,21 +75,12 @@ public class SpineTrackController : MonoBehaviour
         // Special: front Stage 3 has mask-remove intro
         if (!isBack && stage == 3)
         {
-            if (currentHeadAnim == stage3) return;
+            // Always restart the sequence, even if already in stage3
+            sa.AnimationState.SetEmptyAnimation(1, 0f);
+            sa.AnimationState.SetAnimation(1, stage3MaskRemove, false);
+            sa.AnimationState.AddAnimation(1, stage3, true, 0f);
 
-            if (!stage3Initialized)
-            {
-                sa.AnimationState.SetEmptyAnimation(1, 0f);
-                sa.AnimationState.SetAnimation(1, stage3MaskRemove, false);
-                sa.AnimationState.AddAnimation(1, stage3, true, 0f);
-                stage3Initialized = true;
-                currentHeadAnim = stage3;
-            }
-            else
-            {
-                PlayHead(stage3);
-            }
-
+            currentHeadAnim = stage3; // keep your "current" tracking consistent
             return;
         }
 
@@ -120,6 +109,18 @@ public class SpineTrackController : MonoBehaviour
 
         // After it finishes, clear the track so body/head continue
         sa.AnimationState.AddEmptyAnimation(3, 0.1f, 0f);
+    }
+
+    public void SetFacing(float moveX)
+    {
+        if (!sa) return;
+
+        // Only flip when we actually have direction
+        if (Mathf.Abs(moveX) < 0.001f) return;
+
+        float sign = Mathf.Sign(moveX);        // +1 right, -1 left
+        sa.Skeleton.ScaleX = Mathf.Abs(sa.Skeleton.ScaleX) * sign;
+        sa.Skeleton.UpdateWorldTransform();
     }
 
 }
