@@ -309,6 +309,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Source
       objectReference: {fileID: 0}
+    - target: {fileID: 5981715339332642630, guid: 377552b09492dc7469c4e7987ec1a08e, type: 3}
+      propertyPath: maxHP
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981715339332642630, guid: 377552b09492dc7469c4e7987ec1a08e, type: 3}
+      propertyPath: currentHP
+      value: 175
+      objectReference: {fileID: 0}
     - target: {fileID: 6683953410254389122, guid: 377552b09492dc7469c4e7987ec1a08e, type: 3}
       propertyPath: m_Mesh
       value: 

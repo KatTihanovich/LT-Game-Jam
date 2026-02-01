@@ -33,9 +33,9 @@ public class CharacterSpawner : MonoBehaviour
         int totalCount = allWalkers.Count;
 
         // например, 5–7 заражённых, но не больше общего количества
-        int infectedCount = Random.Range(5, 8);
-        infectedCount = Mathf.Clamp(infectedCount, 0, totalCount);
-
+//        int infectedCount = Random.Range(5, 8);
+//        infectedCount = Mathf.Clamp(infectedCount, 0, totalCount);
+        int infectedCount = totalCount;
         // перемешиваем список (Фишер–Йетс)
         for (int i = 0; i < totalCount; i++)
         {
@@ -49,6 +49,7 @@ public class CharacterSpawner : MonoBehaviour
         for (int i = 0; i < infectedCount; i++)
         {
             allWalkers[i].Infect();
+            allWalkers[i].Sick();
         }
     }
 

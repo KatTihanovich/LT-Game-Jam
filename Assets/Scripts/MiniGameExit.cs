@@ -7,6 +7,8 @@ public class MiniGameExit : MonoBehaviour
     public void ReturnToMain(bool win)
     {
         StartCoroutine(ReturnRoutine(win));
+        Debug.Log("[MiniGameExit] Returning to main scene..." + (win ? " (win)" : " (lose)"));
+        
     }
 
     private IEnumerator ReturnRoutine(bool win)
@@ -19,6 +21,7 @@ public class MiniGameExit : MonoBehaviour
             if (w != null)
                 w.Heal(); // or w.CureToHealthy();
         }
+        Debug.Log("[MiniGameExit] Applied result to walker: " + (w != null ? w.name : "null"));
         w.enabled = true;
 
         // Reactivate previous scene objects
@@ -35,13 +38,9 @@ public class MiniGameExit : MonoBehaviour
         while (unload != null && !unload.isDone)
             yield return null;
 
-        Debug.Log("[MiniGameExit] Returned to main scene" + (win ? " (win)" : " (lose)"));
-
-        var medZone = Object.FindFirstObjectByType<MedZone>();
-        Debug.Log("Finding MedZone to reset state...(found: " + (medZone != null) + ")");
-            if (medZone != null)
-                medZone.ResetState();
+        Debug.Log("[MiniGameExit] Returned to main scene)))" + (win ? " (win)" : " (lose)"));
 
         MedZoneContext.Clear();
+
     }
 }

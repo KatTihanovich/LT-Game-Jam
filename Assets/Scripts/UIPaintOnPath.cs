@@ -339,8 +339,11 @@ public class UIPaintOnPath : MonoBehaviour
     {
         yield return new WaitForSeconds(delayBeforeNextScene);
 
-        if (exit != null)
-            exit.ReturnToMain(win);
+        Debug.Log($"UIPaintOnPath: Loading next scene '{nextSceneName}'...");
+
+        if (exit != null){
+        Debug.Log("MiniGameExit found, using it to return to main scene.");
+            exit.ReturnToMain(win);}
         else
             Debug.LogError("MiniGameExit not found in scene!");
     }
