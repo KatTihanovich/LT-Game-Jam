@@ -324,6 +324,10 @@ public class UIPaintOnPath : MonoBehaviour
 
     private void Win()
     {
+        if (MedZoneContext.CurrentWalker != null)
+        {
+            MedZoneContext.CurrentWalker.Heal();
+        }
         exposure.OnWin(); 
         locked = true;
         drawing = false;

@@ -9,44 +9,46 @@ public class Source : MonoBehaviour
     public float currentHP = 175f;
 
     [Header("Вклад состояний за одно посещение")]
-    public float healthyDelta  = +1.75f;  // здоровый
-    public float infectedDelta = 0f;  // инфицированный
-    public float sickDelta     = -1.75f;   // больной
+    public float healthyDelta  = +1.75f;
+    public float infectedDelta = 0f;
+    public float sickDelta     = -1.75f;
 
     [Header("Лимиты состояний")]
-    public int maxInfected = 6;  // максимум инфицированных
-    public int maxSick     = 6;  // максимум заражённых/больных
+    public int maxInfected = 6;
+    public int maxSick     = 6;
 
-    // Время с начала сессии (сек)
     private float sessionTime = 0f;
 
-    // Статистика по состояниям
     private int healthyCount;
     private int infectedCount;
     private int sickCount;
 
+    // === АНИМАЦИЯ ИСТОЧНИКА ===
+    private Animator animator;
+    private readonly int stageHash = Animator.StringToHash("Stages"); // int‑параметр в Animator [web:130][web:136]
+
     private void Awake()
     {
         Instance = this;
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
-        currentHP = currentHP;
+        currentHP = Mathf.Clamp(currentHP, 0f, maxHP);
+        UpdateAnimationStage();
         PrintHP();
     }
 
     private void Update()
     {
         sessionTime += Time.deltaTime;
-
     }
 
     public void OnWalkerVisitedSource(CycleWalker walker)
     {
         if (walker == null) return;
 
-        // Обновляем счётчики состояний по всей сцене
         RecountStates();
 
         float delta = 0f;
@@ -56,22 +58,53 @@ public class Source : MonoBehaviour
             case CycleWalker.State.Healthy:
                 delta = healthyDelta;
                 break;
-
             case CycleWalker.State.Infected:
                 delta = infectedDelta;
                 break;
-
             case CycleWalker.State.Sick:
-                    delta = sickDelta;
+                delta = sickDelta;
                 break;
         }
 
         currentHP = Mathf.Clamp(currentHP + delta, 0f, maxHP);
 
+        // обновляем анимационный Stage каждый раз, когда меняется HP
+        UpdateAnimationStage();
+
         Debug.Log(
             $"[SOURCE] t={sessionTime:F1}s | {walker.name} ({walker.currentState}) " +
             $"ΔHP={delta:+0.00;-0.00;0.00}, HP={currentHP:0.00}/{maxHP}"
         );
+    }
+
+    private void UpdateAnimationStage()
+    {
+        if (animator == null) return;
+
+        // переводим HP в 0–1
+        float hp01 = maxHP > 0 ? currentHP / maxHP : 0f;
+
+        int stage = 0;
+
+        // твои пороги:
+        // 0 HP        -> 0
+        // 25%  и выше -> 1
+        // 50%  и выше -> 2
+        // 75%  и выше -> 3
+        // 100% и выше -> 4
+        if (hp01 >= 1.0f)
+            stage = 4;
+        else if (hp01 >= 0.75f)
+            stage = 3;
+        else if (hp01 >= 0.50f)
+            stage = 2;
+        else if (hp01 >= 0.25f)
+            stage = 1;
+        else
+            stage = 0;
+
+        Debug.Log($"[SOURCE] Updating animation stage to {stage} (HP={currentHP:0.00}/{maxHP})");
+        animator.SetInteger(stageHash, stage); // дёргаем анимацию по int‑параметру [web:130][web:136]
     }
 
     private void RecountStates()
@@ -100,15 +133,12 @@ public class Source : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Вручную вывести расширенную статистику (можно вызывать из Debug кнопки).
-    /// </summary>
     [ContextMenu("Print Stats")]
     public void PrintStats()
     {
         RecountStates();
 
-        float infectionFrequencyPercentPerSec = sessionTime * 0.06f; // как у тебя в формуле
+        float infectionFrequencyPercentPerSec = sessionTime * 0.06f;
 
         Debug.Log(
             $"[SOURCE STATS] t={sessionTime:F1}s | " +
