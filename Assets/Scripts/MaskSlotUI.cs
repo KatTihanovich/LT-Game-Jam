@@ -25,7 +25,10 @@ public class MaskSlotUI : MonoBehaviour, IDropHandler
         if (piece.pieceId != acceptsPieceId) return;
 
         RectTransform pieceRect = draggedObj.GetComponent<RectTransform>();
-        float dist = Vector2.Distance(pieceRect.anchoredPosition, slotRect.anchoredPosition);
+        Vector2 pieceScreen = RectTransformUtility.WorldToScreenPoint(null, pieceRect.position);
+        Vector2 slotScreen  = RectTransformUtility.WorldToScreenPoint(null, slotRect.position);
+        float dist = Vector2.Distance(pieceScreen, slotScreen);
+
         if (dist > snapDistance) return;
 
         piece.SnapAndLockTo(slotRect);

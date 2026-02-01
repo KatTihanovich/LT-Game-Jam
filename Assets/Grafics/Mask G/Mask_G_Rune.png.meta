@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4b51a7dcdef104d31b2f1170c3bc530c
+guid: db47218e4ff8740b38b71915b73050b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5663353150280981858
-    second: heart-symbol_0
+      213: -3330186138290166092
+    second: Mask_G_Rune_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heart-symbol_0
+      name: Mask_G_Rune_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 116
-        width: 1600
-        height: 1368
+        x: 713
+        y: 890
+        width: 827
+        height: 371
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e92a9e7c05ab761b0800000000000000
-      internalID: -5663353150280981858
+      spriteID: 4b6e84fe95dc8c1d0800000000000000
+      internalID: -3330186138290166092
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      heart-symbol_0: -5663353150280981858
+      Mask_G_Rune_0: -3330186138290166092
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -67,6 +67,9 @@ public class UIPaintOnPath : MonoBehaviour
             return;
         }
 
+        if (!introAnimator)
+            blockInputUntilIntroEnds = false;
+
         // Auto UI camera: Overlay => null, ScreenSpaceCamera/World => canvas.worldCamera
         if (pathImage.canvas && pathImage.canvas.renderMode != RenderMode.ScreenSpaceOverlay)
             uiCamera = pathImage.canvas.worldCamera;
@@ -76,7 +79,22 @@ public class UIPaintOnPath : MonoBehaviour
         pathImage.alphaHitTestMinimumThreshold = alphaThreshold;
 
         // Raycaster + EventSystem
-        raycaster = pathImage.canvas.GetComponent<GraphicRaycaster>();
+        Canvas c = pathImage.canvas;
+        if (!c)
+        {
+            Debug.LogError("UIPaintOnPath: pathImage is not under a Canvas.");
+            enabled = false;
+            return;
+        }
+
+        raycaster = c.GetComponent<GraphicRaycaster>();
+        if (!raycaster)
+        {
+            Debug.LogError("UIPaintOnPath: Canvas is missing a GraphicRaycaster component.");
+            enabled = false;
+            return;
+        }
+
         eventSystem = EventSystem.current;
         if (!eventSystem)
         {
@@ -195,6 +213,8 @@ public class UIPaintOnPath : MonoBehaviour
 
     private bool IsOnPath(Vector2 screen)
     {
+        if (!raycaster || pointerData == null) return false;
+
         pointerData.position = screen;
         results.Clear();
         raycaster.Raycast(pointerData, results);
@@ -226,18 +246,26 @@ public class UIPaintOnPath : MonoBehaviour
     }
     private bool IntroFinishedThisFrame()
     {
+        // No animator => no blocking
         if (!introAnimator) return true;
 
+        // If no state name provided, don't block
+        if (string.IsNullOrWhiteSpace(introStateName)) return true;
+
+        // If it's transitioning, consider intro not finished yet
         if (introAnimator.IsInTransition(introLayer))
             return false;
 
         var st = introAnimator.GetCurrentAnimatorStateInfo(introLayer);
 
-        if (!string.IsNullOrEmpty(introStateName) && st.IsName(introStateName))
-            return st.normalizedTime >= 1f;
+        // Only block while we're in the named intro state
+        if (!st.IsName(introStateName))
+            return true; // not in intro state => allow input
 
+        // In intro state: wait until it finishes
         return st.normalizedTime >= 1f;
     }
+
     private void Paint(Vector2 screen)
     {
         if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(pathImage.rectTransform, screen, uiCamera, out Vector2 local))

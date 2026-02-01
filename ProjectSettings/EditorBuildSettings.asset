@@ -15,11 +15,35 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Scene.unity
     guid: af131812da2908344a64fe817a6b5760
   - enabled: 1
-    path: Assets/Scenes/Health.unity
+    path: Assets/Scenes/Health/HealthB.unity
     guid: ce2c6976756324923ba5ebee0027afff
   - enabled: 1
-    path: Assets/Scenes/MakeMask.unity
+    path: Assets/Scenes/MakeMask/MakeMaskB.unity
     guid: 0750b5bbebaf540b687eb7afe65ce039
+  - enabled: 1
+    path: Assets/Scenes/MakeMask/MakeMaskA.unity
+    guid: 19e263abfc8de4381af6ed79425f61e1
+  - enabled: 1
+    path: Assets/Scenes/MakeMask/MakeMaskC.unity
+    guid: 313318ba5ceca449d8abb7e2d4cf7f46
+  - enabled: 1
+    path: Assets/Scenes/MakeMask/MakeMaskF.unity
+    guid: 6f610323148eb49118ce4ca36728195d
+  - enabled: 1
+    path: Assets/Scenes/MakeMask/MakeMaskG.unity
+    guid: 40821c0a5fa9a454b83e82c08980017f
+  - enabled: 1
+    path: Assets/Scenes/Health/HealthA.unity
+    guid: f7008de45d06745688b65e009a2452a4
+  - enabled: 1
+    path: Assets/Scenes/Health/HealthC.unity
+    guid: cb2e111a184414b7bb84632868783e6b
+  - enabled: 1
+    path: Assets/Scenes/Health/HealthF.unity
+    guid: 6b714fb583491451b9496cfb44debc26
+  - enabled: 1
+    path: Assets/Scenes/Health/HealthG.unity
+    guid: 016632546e1114c5b9e8ce5f3ac52b58
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

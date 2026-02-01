@@ -27,7 +27,7 @@ public class DraggablePieceUI : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         rootCanvas = GetComponentInParent<Canvas>();
         rootCanvasRect = rootCanvas.GetComponent<RectTransform>();
 
-        uiCamera = rootCanvas.worldCamera; // important for Screen Space - Camera
+        uiCamera = rootCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : rootCanvas.worldCamera;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
