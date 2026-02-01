@@ -97,4 +97,9 @@ public class MedZone : MonoBehaviour
         isLoading = false;
     }
 
+    public void ResetState()
+        {
+            isLoading = false;
+            sceneLoaded = false;
+        }
 }

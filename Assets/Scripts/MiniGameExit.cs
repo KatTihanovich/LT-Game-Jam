@@ -11,13 +11,15 @@ public class MiniGameExit : MonoBehaviour
 
     private IEnumerator ReturnRoutine(bool win)
     {
+        var w = MedZoneContext.CurrentWalker;
+
         // Apply result BEFORE returning
         if (win)
         {
-            var w = MedZoneContext.CurrentWalker;
             if (w != null)
                 w.Heal(); // or w.CureToHealthy();
         }
+        w.enabled = true;
 
         // Reactivate previous scene objects
         foreach (var go in MedZoneContext.DisabledRoots)
@@ -32,6 +34,13 @@ public class MiniGameExit : MonoBehaviour
         AsyncOperation unload = SceneManager.UnloadSceneAsync(mini);
         while (unload != null && !unload.isDone)
             yield return null;
+
+        Debug.Log("[MiniGameExit] Returned to main scene" + (win ? " (win)" : " (lose)"));
+
+        var medZone = Object.FindFirstObjectByType<MedZone>();
+        Debug.Log("Finding MedZone to reset state...(found: " + (medZone != null) + ")");
+            if (medZone != null)
+                medZone.ResetState();
 
         MedZoneContext.Clear();
     }

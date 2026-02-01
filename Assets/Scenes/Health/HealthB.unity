@@ -380,7 +380,7 @@ MonoBehaviour:
   nextSceneName: Main Scene
   delayBeforeNextScene: 1.5
   exposure: {fileID: 1662966108}
-  exit: {fileID: 0}
+  exit: {fileID: 1662966109}
 --- !u!114 &402701874
 MonoBehaviour:
   m_ObjectHideFlags: 0

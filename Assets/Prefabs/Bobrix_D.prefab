@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  idLetter: D
+  idLetter: G
   currentState: 1
 --- !u!114 &9028188814715663163
 MonoBehaviour:
