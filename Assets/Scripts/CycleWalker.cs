@@ -16,14 +16,21 @@ public class CycleWalker : MonoBehaviour
     private bool inQuarantine = false;
     public bool InQuarantine => inQuarantine;
 
+    [Header("ID")]
+    public string idLetter = "A";   
+
     // Тащится ли сейчас мышкой
     public bool IsDragged { get; private set; }
+
+    private CameraController2D camController;
 
     public void SetDragged(bool value)
     {
         IsDragged = value;
 
-        // Триггер поднятия
+        if (value && camController != null)
+            camController.SetFollowTarget(this);
+
         if (value && animator != null)
         {
             animator.ResetTrigger("PulledUp");   // чтобы не залипало[web:24]
@@ -47,6 +54,7 @@ public class CycleWalker : MonoBehaviour
         animator = GetComponent<Animator>();
         UpdateColor();
         UpdateAnimatorStage(); // сразу выставим Stage
+        camController = Camera.main != null ? Camera.main.GetComponent<CameraController2D>() : null;
 
         infectionThresholdVisits = Random.Range(5, 11);
         quarantineZone = FindObjectOfType<QuarantineZone>();
@@ -211,6 +219,7 @@ public class CycleWalker : MonoBehaviour
 
     public void Heal()
     {
+        Debug.Log($"[Walker {name}] вылечился в медзоне");
         currentState = State.Healthy;
         UpdateColor();
         UpdateAnimatorStage();

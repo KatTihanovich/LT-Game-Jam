@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
 {
-    public GameObject characterPrefab;
-    public int count = 10;
+    public GameObject[] characterPrefabs;   // 5 префабов
+    public int perPrefabCount = 4;          // по 4 каждого
 
-    // Углы зоны
     public Transform bottomLeft;
     public Transform topRight;
 
@@ -19,33 +18,41 @@ public class CharacterSpawner : MonoBehaviour
     {
         List<CycleWalker> allWalkers = new List<CycleWalker>();
 
-        for (int i = 0; i < count; i++)
+        // перебираем каждый префаб
+        foreach (var prefab in characterPrefabs)
         {
-            CycleWalker w = SpawnOne();
-            if (w != null)
-                allWalkers.Add(w);
+            for (int i = 0; i < perPrefabCount; i++)
+            {
+                CycleWalker w = SpawnOne(prefab);
+                if (w != null)
+                    allWalkers.Add(w);
+            }
         }
 
-        // 2–4 заражённых (но не больше общего количества)
-        int infectedCount = Random.Range(5, 8); 
-        infectedCount = Mathf.Clamp(infectedCount, 0, allWalkers.Count);
+        // считаем общее количество
+        int totalCount = allWalkers.Count;
 
-        // Перемешиваем список, чтобы выбрать случайных
-        for (int i = 0; i < allWalkers.Count; i++)
+        // например, 5–7 заражённых, но не больше общего количества
+        int infectedCount = Random.Range(5, 8);
+        infectedCount = Mathf.Clamp(infectedCount, 0, totalCount);
+
+        // перемешиваем список (Фишер–Йетс)
+        for (int i = 0; i < totalCount; i++)
         {
-            int j = Random.Range(i, allWalkers.Count);
+            int j = Random.Range(i, totalCount);
             var tmp = allWalkers[i];
             allWalkers[i] = allWalkers[j];
             allWalkers[j] = tmp;
         }
 
+        // заражаем первых infectedCount
         for (int i = 0; i < infectedCount; i++)
         {
             allWalkers[i].Infect();
         }
     }
 
-    private CycleWalker SpawnOne()
+    private CycleWalker SpawnOne(GameObject prefab)
     {
         float minX = bottomLeft.position.x;
         float maxX = topRight.position.x;
@@ -57,22 +64,20 @@ public class CharacterSpawner : MonoBehaviour
         Vector2 spawnPos = new Vector2(x, y);
 
         GameObject obj = Instantiate(
-            characterPrefab,
+            prefab,
             spawnPos,
             Quaternion.identity
         );
 
-    Draggable drag = obj.GetComponent<Draggable>();
+        Draggable drag = obj.GetComponent<Draggable>();
         if (drag != null)
         {
             drag.SetBounds(minX, maxX, minY, maxY);
         }
 
-        // Получаем CycleWalker
         CycleWalker walker = obj.GetComponent<CycleWalker>();
         if (walker != null)
         {
-            // Передаём границы
             walker.SetBounds(minX, maxX, minY, maxY);
         }
         else
@@ -83,7 +88,6 @@ public class CharacterSpawner : MonoBehaviour
         return walker;
     }
 
-    // Визуализация зоны
     private void OnDrawGizmos()
     {
         if (bottomLeft && topRight)

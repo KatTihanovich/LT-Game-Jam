@@ -15,6 +15,10 @@ GameObject:
   - component: {fileID: 4738105527423141464}
   - component: {fileID: 1597745938868389030}
   - component: {fileID: 2239934237478645806}
+  - component: {fileID: 7646279208646079222}
+  - component: {fileID: 6842764886585489370}
+  - component: {fileID: 7547336553827963704}
+  - component: {fileID: 6824151996440572286}
   m_Layer: 0
   m_Name: Bobrix_F
   m_TagString: Untagged
@@ -32,7 +36,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.19, y: -4.23, z: 0}
-  m_LocalScale: {x: 0.24693504, y: 0.24693504, z: 0.24693504}
+  m_LocalScale: {x: 0.07637701, y: 0.07637701, z: 0.07637701}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -187,3 +191,94 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4738105527423141464}
   spine: {fileID: 1597745938868389030}
+--- !u!114 &7646279208646079222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3236200839955152230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7823e53a0ee134946890b9ff63fc9e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  idLetter: F
+  currentState: 1
+--- !u!114 &6842764886585489370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3236200839955152230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 111c90525a9dd2b489229b920fa7caac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &7547336553827963704
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3236200839955152230}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.24983113, y: 7.661164}
+  m_Size: {x: 13.104402, y: 15.422406}
+  m_Direction: 0
+--- !u!50 &6824151996440572286
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3236200839955152230}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

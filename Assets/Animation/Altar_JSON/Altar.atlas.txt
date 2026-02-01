@@ -1,0 +1,124 @@
+
+Altar.png
+size: 2173,2171
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_1
+  rotate: false
+  xy: 1404, 1402
+  size: 629, 767
+  orig: 629, 767
+  offset: 0, 0
+  index: -1
+1_2
+  rotate: true
+  xy: 1404, 771
+  size: 629, 767
+  orig: 629, 767
+  offset: 0, 0
+  index: -1
+1_3
+  rotate: false
+  xy: 1540, 2
+  size: 629, 767
+  orig: 629, 767
+  offset: 0, 0
+  index: -1
+3_1
+  rotate: false
+  xy: 2, 1402
+  size: 631, 767
+  orig: 631, 767
+  offset: 0, 0
+  index: -1
+3_2
+  rotate: true
+  xy: 2, 769
+  size: 631, 767
+  orig: 631, 767
+  offset: 0, 0
+  index: -1
+3_3
+  rotate: true
+  xy: 635, 1538
+  size: 631, 767
+  orig: 631, 767
+  offset: 0, 0
+  index: -1
+4_1
+  rotate: false
+  xy: 771, 769
+  size: 631, 767
+  orig: 631, 767
+  offset: 0, 0
+  index: -1
+4_2
+  rotate: true
+  xy: 2, 136
+  size: 631, 767
+  orig: 631, 767
+  offset: 0, 0
+  index: -1
+4_3
+  rotate: true
+  xy: 771, 136
+  size: 631, 767
+  orig: 631, 767
+  offset: 0, 0
+  index: -1
+
+Altar2.png
+size: 2346,1402
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+2_1
+  rotate: false
+  xy: 2, 633
+  size: 629, 767
+  orig: 629, 767
+  offset: 0, 0
+  index: -1
+2_2
+  rotate: true
+  xy: 2, 2
+  size: 629, 767
+  orig: 629, 767
+  offset: 0, 0
+  index: -1
+2_3
+  rotate: false
+  xy: 633, 633
+  size: 629, 767
+  orig: 629, 767
+  offset: 0, 0
+  index: -1
+base
+  rotate: false
+  xy: 1830, 721
+  size: 514, 679
+  orig: 514, 679
+  offset: 0, 0
+  index: -1
+w_1
+  rotate: false
+  xy: 1264, 718
+  size: 564, 682
+  orig: 564, 682
+  offset: 0, 0
+  index: -1
+w_2
+  rotate: false
+  xy: 1478, 37
+  size: 543, 679
+  orig: 543, 679
+  offset: 0, 0
+  index: -1
+w_3
+  rotate: true
+  xy: 771, 24
+  size: 607, 705
+  orig: 607, 705
+  offset: 0, 0
+  index: -1
