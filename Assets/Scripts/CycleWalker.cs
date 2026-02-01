@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Audio;
 
 public class CycleWalker : MonoBehaviour
 {
@@ -23,11 +24,17 @@ public class CycleWalker : MonoBehaviour
     {
         IsDragged = value;
 
-        // Триггер поднятия
+        if (value)
+        {
+            _soundManager?.StopSound(stepsSource);
+            stepsSource = null;
+            wasMoving = false;
+        }
+
         if (value && animator != null)
         {
-            animator.ResetTrigger("PulledUp");   // чтобы не залипало[web:24]
-            animator.SetTrigger("PulledUp");     // запускаем анимацию поднятия[web:26]
+            animator.ResetTrigger("PulledUp");
+            animator.SetTrigger("PulledUp");
         }
     }
 
@@ -40,6 +47,10 @@ public class CycleWalker : MonoBehaviour
     private SpriteRenderer sr;
     private QuarantineZone quarantineZone;
     private Animator animator;
+    private ISoundManager _soundManager;
+    [SerializeField] private string stepsLoopName = "steps"; 
+    private AudioSource stepsSource;
+    private bool wasMoving;
 
     void Awake()
     {
@@ -50,6 +61,11 @@ public class CycleWalker : MonoBehaviour
 
         infectionThresholdVisits = Random.Range(5, 11);
         quarantineZone = FindObjectOfType<QuarantineZone>();
+    }
+
+    void Start()
+    {
+        _soundManager = SoundManager.Instance;
     }
 
     void Update()
@@ -64,31 +80,45 @@ public class CycleWalker : MonoBehaviour
     {
         Vector2 currentPos = transform.position;
 
-        // Вектор к цели
-        Vector2 toTarget = target - currentPos;
-        bool isMovingNow = toTarget.sqrMagnitude > 0.0001f;
+        // move first
+        transform.position = Vector2.MoveTowards(currentPos, target, speed * Time.deltaTime);
 
-        // Обновляем анимационные параметры движения
+        bool isMovingNow = Vector2.Distance(transform.position, target) >= 0.05f;
+
+        // --- Steps loop start/stop ---
+        if (_soundManager != null)
+        {
+            if (isMovingNow && !IsDragged && !inQuarantine)
+            {
+                if (stepsSource == null) // simpler than wasMoving
+                    stepsSource = _soundManager.PlaySound(stepsLoopName, true);
+            }
+            else
+            {
+                if (stepsSource != null)
+                {
+                    _soundManager.StopSound(stepsSource);
+                    stepsSource = null;
+                }
+            }
+        }
+
+        // animator update (use direction toward target)
         if (animator != null)
         {
+            Vector2 toTarget = target - (Vector2)transform.position;
             Vector2 dir = isMovingNow ? toTarget.normalized : Vector2.zero;
 
             animator.SetBool("IsMoving", isMovingNow);
-            animator.SetFloat("MoveX", -dir.x);              // SetFloat[web:3]
+            animator.SetFloat("MoveX", -dir.x);
             animator.SetFloat("MoveY", dir.y);
             animator.SetBool("IsBack", dir.y > 0.01f);
         }
 
-        // Само перемещение
-        transform.position = Vector2.MoveTowards(
-            currentPos,
-            target,
-            speed * Time.deltaTime
-        );
-
-        if (Vector2.Distance(transform.position, target) < 0.05f)
+        if (!isMovingNow)
             OnReachPoint();
     }
+
 
     void OnReachPoint()
     {
@@ -166,6 +196,10 @@ public class CycleWalker : MonoBehaviour
 
     public void EnterQuarantine()
     {
+        _soundManager?.StopSound(stepsSource);
+        stepsSource = null;
+        wasMoving = false;
+
         inQuarantine = true;
         target = transform.position;
 
