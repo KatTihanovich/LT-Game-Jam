@@ -114,18 +114,4 @@ public class QuarantineZone : MonoBehaviour
     {
         ReleaseOne();
     }
-
-    void OnDrawGizmos()
-    {
-        if (!box) box = GetComponent<BoxCollider2D>();
-
-        Gizmos.color = canHeal ? zoneColor : cooldownColor;
-
-        Vector3 center = transform.position + (Vector3)box.offset;
-        Vector3 size = box.size;
-        Gizmos.DrawCube(center, size);
-
-        Gizmos.color = borderColor;
-        Gizmos.DrawWireCube(center, size);
-    }
 }
