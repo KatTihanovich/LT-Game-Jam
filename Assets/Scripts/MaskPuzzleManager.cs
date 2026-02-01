@@ -12,6 +12,8 @@ public class MaskPuzzleManager : MonoBehaviour
     public GameObject outlineObject;  
     public GameObject fullMaskObject; 
 
+    public ExposureByResult_URP exposure;
+
     private bool completed;
 
     [Header("Next scene")]
@@ -34,6 +36,7 @@ public class MaskPuzzleManager : MonoBehaviour
     private void CompletePuzzle()
     {
         completed = true;
+        exposure.OnWin(); 
 
         if (piecesRoot) piecesRoot.SetActive(false);
         if (outlineObject) outlineObject.SetActive(false);

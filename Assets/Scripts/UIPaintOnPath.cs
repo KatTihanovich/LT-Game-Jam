@@ -32,8 +32,6 @@ public class UIPaintOnPath : MonoBehaviour
     [SerializeField] private float alphaThreshold = 0.2f;
 
     [Header("UI")]
-    [SerializeField] private GameObject failUI;
-    [SerializeField] private GameObject winUI;
     [SerializeField] private TMP_Text timerText;
 
     [Header("Timer")]
@@ -42,6 +40,7 @@ public class UIPaintOnPath : MonoBehaviour
     [Header("Next scene")]
     public string nextSceneName;     
     public float delayBeforeNextScene = 2f;
+    public ExposureByResult_URP exposure;
 
     private Camera uiCamera;
 
@@ -111,7 +110,6 @@ public class UIPaintOnPath : MonoBehaviour
         timerRunning = false;
         if (timerText) timerText.text = Mathf.CeilToInt(timeLeft).ToString();
 
-        HideUI();
     }
 
     void Update()
@@ -288,28 +286,22 @@ public class UIPaintOnPath : MonoBehaviour
 
     private void Fail()
     {
+        exposure.OnLose(); 
         locked = true;
         drawing = false;
         timerRunning = false;
-        if (failUI) failUI.SetActive(true);
         if (!string.IsNullOrEmpty(nextSceneName))
             StartCoroutine(LoadNextSceneAfterDelay());
     }
 
     private void Win()
     {
+        exposure.OnWin(); 
         locked = true;
         drawing = false;
         timerRunning = false;
-        if (winUI) winUI.SetActive(true);
         if (!string.IsNullOrEmpty(nextSceneName))
             StartCoroutine(LoadNextSceneAfterDelay());
-    }
-
-    private void HideUI()
-    {
-        if (failUI) failUI.SetActive(false);
-        if (winUI) winUI.SetActive(false);
     }
 
     private Rect GetDrawnSpriteRect(Rect imageRect, Sprite sprite, bool preserveAspect)
