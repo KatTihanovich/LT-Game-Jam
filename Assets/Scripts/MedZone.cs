@@ -69,13 +69,12 @@ public class MedZone : MonoBehaviour
 
         Scene previousActive = SceneManager.GetActiveScene();
 
-        AsyncOperation op = SceneManager.LoadSceneAsync(
-            sceneName,
-            LoadSceneMode.Additive
-        ); // грузим сцену по сгенерированному имени [web:91][web:93]
+        // Save return info
+        MedZoneContext.PreviousScene = previousActive;
+        MedZoneContext.DisabledRoots.Clear();
 
-        while (!op.isDone)
-            yield return null;
+        AsyncOperation op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        while (!op.isDone) yield return null;
 
         Scene newScene = SceneManager.GetSceneByName(sceneName);
         if (!newScene.IsValid())
@@ -85,15 +84,17 @@ public class MedZone : MonoBehaviour
             yield break;
         }
 
-        SceneManager.SetActiveScene(newScene); // делаем новой активной [web:63][web:66]
+        SceneManager.SetActiveScene(newScene);
 
-        var roots = previousActive.GetRootGameObjects(); // берём корневые объекты предыдущей сцены [web:57][web:58]
+        var roots = previousActive.GetRootGameObjects();
         foreach (var go in roots)
         {
-            go.SetActive(false); // старая сцена скрыта, но не выгружена
+            go.SetActive(false);
+            MedZoneContext.DisabledRoots.Add(go);
         }
 
         sceneLoaded = true;
-        isLoading  = false;
+        isLoading = false;
     }
+
 }

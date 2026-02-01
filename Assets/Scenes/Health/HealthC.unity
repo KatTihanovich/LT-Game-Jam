@@ -379,6 +379,7 @@ MonoBehaviour:
   nextSceneName: Main Scene
   delayBeforeNextScene: 1.5
   exposure: {fileID: 1662966108}
+  exit: {fileID: 0}
 --- !u!114 &402701874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,6 +1017,7 @@ GameObject:
   - component: {fileID: 1662966104}
   - component: {fileID: 1662966107}
   - component: {fileID: 1662966108}
+  - component: {fileID: 1662966109}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1157,6 +1159,18 @@ MonoBehaviour:
   loseExposureEV: -3
   winExposureEV: 1
   fadeDuration: 0.6
+--- !u!114 &1662966109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662966103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df62213f26c134013ba107157b30cbc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1706357751
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -44,6 +44,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Health/HealthG.unity
     guid: 016632546e1114c5b9e8ce5f3ac52b58
+  - enabled: 1
+    path: "Assets/Scenes/\u0441\u043B\u044B.unity"
+    guid: 516503aa97cad7844a752e99d5a641f1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

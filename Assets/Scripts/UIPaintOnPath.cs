@@ -41,6 +41,7 @@ public class UIPaintOnPath : MonoBehaviour
     public string nextSceneName;     
     public float delayBeforeNextScene = 2f;
     public ExposureByResult_URP exposure;
+    [SerializeField] private MiniGameExit exit;
 
     private Camera uiCamera;
 
@@ -66,6 +67,8 @@ public class UIPaintOnPath : MonoBehaviour
             enabled = false;
             return;
         }
+
+        if (!exit) exit = FindFirstObjectByType<MiniGameExit>();
 
         if (!introAnimator)
             blockInputUntilIntroEnds = false;
@@ -314,26 +317,32 @@ public class UIPaintOnPath : MonoBehaviour
 
     private void Fail()
     {
-        exposure.OnLose(); 
+        exposure.OnLose();
         locked = true;
         drawing = false;
         timerRunning = false;
-        if (!string.IsNullOrEmpty(nextSceneName))
-            StartCoroutine(LoadNextSceneAfterDelay());
+
+        StartCoroutine(ExitAfterDelay(false));
     }
 
     private void Win()
     {
-        if (MedZoneContext.CurrentWalker != null)
-        {
-            MedZoneContext.CurrentWalker.Heal();
-        }
-        exposure.OnWin(); 
+        exposure.OnWin();
         locked = true;
         drawing = false;
         timerRunning = false;
-        if (!string.IsNullOrEmpty(nextSceneName))
-            StartCoroutine(LoadNextSceneAfterDelay());
+
+        StartCoroutine(ExitAfterDelay(true));
+    }
+
+    private IEnumerator ExitAfterDelay(bool win)
+    {
+        yield return new WaitForSeconds(delayBeforeNextScene);
+
+        if (exit != null)
+            exit.ReturnToMain(win);
+        else
+            Debug.LogError("MiniGameExit not found in scene!");
     }
 
     private Rect GetDrawnSpriteRect(Rect imageRect, Sprite sprite, bool preserveAspect)
@@ -361,11 +370,5 @@ public class UIPaintOnPath : MonoBehaviour
             float y = imageRect.y + (rectH - newH) * 0.5f;
             return new Rect(imageRect.x, y, rectW, newH);
         }
-    }
-
-    private IEnumerator LoadNextSceneAfterDelay()
-    {
-        yield return new WaitForSeconds(delayBeforeNextScene);
-        SceneManager.LoadScene(nextSceneName);
     }
 }
